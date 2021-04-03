@@ -1,7 +1,7 @@
 import React from "react"
 
 interface Props {
-    onSubmit: () => void
+    onSubmit: () => React.FormEvent<HTMLFormElement>
     onChange: () => void
 }
 

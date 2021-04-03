@@ -12,9 +12,8 @@ export const AddContact: React.FC = () => {
         });
     };
 
-    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
         // TODO: post call to BE
     };
 
@@ -23,7 +22,7 @@ export const AddContact: React.FC = () => {
             <div className='add-contact-container'>
                 <h1 className='title'>Kontakt hinzufügen</h1>
             </div>
-            <ContactForm onSubmit={console.log} onChange={console.log}/>
+            <ContactForm onSubmit={onSubmit} onChange={console.log}/>
         </>
     )
 }
