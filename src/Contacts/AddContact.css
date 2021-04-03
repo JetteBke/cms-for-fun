@@ -1,0 +1,10 @@
+.add-contact-container {
+    width: 75%;
+    margin: auto;
+    height: 75%;
+    background-color: aliceblue;
+}
+
+.title {
+    padding: 15px 15px;
+}
