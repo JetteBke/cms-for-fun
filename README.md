@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# CMS for a friend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I am building this small cms for a friend, it is written in Typescript.
 
 ## Available Scripts
 
