@@ -1,0 +1,35 @@
+.form-container {
+    width: 75%;
+    margin-left: 20px;
+    background-color: whitesmoke;
+    padding: 10px 10px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: left;
+}
+
+.form-cell {
+    margin: 10px 10px;
+    font-size: 14px;
+}
+
+.form-cell-title {
+    margin: 5px 0;
+}
+
+.form-submit-button {
+    background-color: brown;
+    color: white;
+    font-size: 14px;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.success-message {
+    background-color: bisque;
+    padding: 10px 10px;
+    border-radius: 5px;
+}

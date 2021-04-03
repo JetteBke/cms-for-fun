@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState} from "react";
 import './AddContact.css'
 import {ContactForm} from "./ContactForm";
 
@@ -12,17 +12,12 @@ export const AddContact: React.FC = () => {
         });
     };
 
-    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        // TODO: post call to BE
-    };
-
     return (
         <>
             <div className='add-contact-container'>
                 <h1 className='title'>Kontakt hinzufügen</h1>
+                <ContactForm onChange={onChange}/>
             </div>
-            <ContactForm onSubmit={onSubmit} onChange={console.log}/>
         </>
     )
 }
