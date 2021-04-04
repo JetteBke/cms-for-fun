@@ -1,18 +1,25 @@
-import React from "react"
+import React, {useState} from "react"
 import './ContactForm.css'
+import {saveContact} from "./ContactService";
+import {Contact} from "./Contact";
 
-interface Props {
-    // onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-}
 
-export const ContactForm = ({onChange}: Props) => {
+export const ContactForm = () => {
+
     const [successMessage, setSuccessMessage] = React.useState(false)
+    const [values, setValues] = useState({});
 
-    const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // TODO: post call to BE
+        await saveContact(values as Contact)
         setSuccessMessage(true)
+    };
+
+    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValues({
+            ...values, [event.target.name]:
+            event.target.value
+        });
     };
 
     return (
@@ -32,18 +39,18 @@ export const ContactForm = ({onChange}: Props) => {
                     <div className='form-cell'>
                         <p className='form-cell-title'>Vorname</p>
                         <input
-                            name='first-name'
-                            id='first-name'
-                            type='first-name'
+                            name='firstName'
+                            id='firstName'
+                            type='firstName'
                             onChange={onChange}
                         />
                     </div>
                     <div className='form-cell'>
                         <p className='form-cell-title'>Nachname</p>
                         <input
-                            name='last-name'
-                            id='last-name'
-                            type='last-name'
+                            name='lastName'
+                            id='lastName'
+                            type='lastName'
                             onChange={onChange}
                             required
                         />
@@ -62,9 +69,9 @@ export const ContactForm = ({onChange}: Props) => {
                     <div className='form-cell'>
                         <p className='form-cell-title'>Postleihzahl</p>
                         <input
-                            name='postal-code'
-                            id='postal-code'
-                            type='postal-code'
+                            name='postalCode'
+                            id='postalCode'
+                            type='postalCode'
                             onChange={onChange}
                         />
                     </div>
@@ -82,18 +89,18 @@ export const ContactForm = ({onChange}: Props) => {
                     <div className='form-cell'>
                         <p className='form-cell-title'>Telefon 1</p>
                         <input
-                            name='phone-one'
-                            id='phone-one'
-                            type='phone-one'
+                            name='phoneOne'
+                            id='phoneOne'
+                            type='phoneOne'
                             onChange={onChange}
                         />
                     </div>
                     <div className='form-cell'>
                         <p className='form-cell-title'>Telefon 2</p>
                         <input
-                            name='phone-two'
-                            id='phone-two'
-                            type='phone-two'
+                            name='phoneTwo'
+                            id='phoneTwo'
+                            type='phoneTwo'
                             onChange={onChange}
                         />
                     </div>
@@ -102,18 +109,18 @@ export const ContactForm = ({onChange}: Props) => {
                     <div className='form-cell'>
                         <p className='form-cell-title'>Email 1</p>
                         <input
-                            name='email-one'
-                            id='email-one'
-                            type='email-one'
+                            name='emailOne'
+                            id='emailOne'
+                            type='emailOne'
                             onChange={onChange}
                         />
                     </div>
                     <div className='form-cell'>
                         <p className='form-cell-title'>Email 2</p>
                         <input
-                            name='email-two'
-                            id='email-two'
-                            type='email-two'
+                            name='emailTwo'
+                            id='emailTwo'
+                            type='emailTwo'
                             onChange={onChange}
                         />
                     </div>
