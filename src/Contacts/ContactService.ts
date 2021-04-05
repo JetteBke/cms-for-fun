@@ -13,3 +13,13 @@ export const saveContact = async (
         return undefined
     }
 }
+
+export const showMessageEndpoint = async (): Promise<void | undefined> => {
+    try {
+        await axios.get<void>(
+            `/hello`
+        )
+    } catch (err) {
+        return undefined
+    }
+}

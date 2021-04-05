@@ -7,13 +7,13 @@ import {Contact} from "./Contact";
 export const ContactForm = () => {
 
     const [successMessage, setSuccessMessage] = React.useState(false)
-    const [values, setValues] = useState({});
+    const [values, setValues] = useState({})
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         await saveContact(values as Contact)
         setSuccessMessage(true)
-    };
+    }
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValues({
