@@ -1,8 +1,11 @@
 version: "3.9"
 services:
   cms-frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: "cms-fe:0.1"
     ports:
-      - "3000:3000"
+      - "3000:3000" # localhost-port:container-port
+# TODO: create nginx server to make the HTTP request to correct BE port (?)
+  cms-backend:
+    image: "cms-be:local"
+    ports:
+      - "8080:8080"
