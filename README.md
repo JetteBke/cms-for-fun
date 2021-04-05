@@ -2,7 +2,18 @@
 
 I am building this small cms for a friend, it is written in Typescript.
 
-## Available Scripts
+## Prerequisites
+
+You need to have docker, docker-compose and npm installed.
+You also need to create a  local version of the Docker image of this repository: https://github.com/JetteBke/cms-backend. 
+
+In order to achieve this you can run `docker build -t cms-be:local .` in the root of that project. 
+
+## Run cms locally with backend
+You can run `docker-compose up` in the root of this project. Open http://localhost:3000 to view it in the browser.
+
+
+## Available Scripts for development
 
 In the project directory, you can run:
 
