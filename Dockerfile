@@ -5,7 +5,6 @@ COPY ./public ./public
 RUN npm install
 
 COPY ./src ./src
-#COPY docker-entrypoint.sh ./
+COPY docker-entrypoint.sh ./
 
-#ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["npm","start"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
