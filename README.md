@@ -1,6 +1,6 @@
-# CMS for a friend
+# Contact Organizer for a friend
 
-I am building this small cms for a friend, it is written in Typescript.
+I am building this small contact organizer for a friend, it is written in Typescript.
 
 ## Prerequisites
 
