@@ -1,11 +1,11 @@
 version: "3.9"
 services:
 #  TODO: use nginx as static file server
-  cms-frontend:
-    image: "cms-fe:1.1"
+  corg-frontend:
+    image: "corg-fe:1.1"
     ports:
       - "3000:3000" # localhost-port:container-port
-  cms-backend:
-    image: "cms-be:local"
+  corg-backend:
+    image: "corg-be:local"
     ports:
       - "8080:8080"
