@@ -4,16 +4,7 @@ I am building this small contact organizer for a friend, it is written in Typesc
 
 ## Prerequisites
 
-You need to have docker, docker-compose and npm installed.
-You also need to create a  local version of the Docker image of this repository: https://github.com/JetteBke/cms-backend. 
-
-In order to achieve this you can run `docker build -t cms-be:local .` in the root of that project. 
-
-## Run cms locally with backend
-
-Run `docker build -t cms-fe:local` in the root of the project. 
-Then run `docker-compose up` in the root of this project. Open http://localhost:3000 to view it in the browser.
-(Still doesn't work for the click button on the add contact form).
+You need to have docker and npm installed.
 
 ## Available Scripts for development
 
