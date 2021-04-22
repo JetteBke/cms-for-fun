@@ -3,7 +3,7 @@ import './Contacts.css'
 import {ContactTable} from "./ContactTable";
 import {Contact} from "./Contact";
 
-const ContactFixture: Array<Contact> = [{
+export const ContactFixture: Array<Contact> = [{
     address: "some street 12",
     city: "cologne",
     emailOne: "ghjk@ghjk.com",

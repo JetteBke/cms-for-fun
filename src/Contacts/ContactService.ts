@@ -14,12 +14,9 @@ export const saveContact = async (
     }
 }
 
-export const showMessageEndpoint = async (): Promise<void | undefined> => {
-    try {
-        await axios.get<void>(
-            `/hello`
+export const getContacts = async (): Promise<Array<Contact>> =>
+    (
+        await axios.get<Array<Contact>>(
+            `/cms/api/contacts`
         )
-    } catch (err) {
-        return undefined
-    }
-}
+    ).data
