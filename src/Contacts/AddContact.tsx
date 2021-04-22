@@ -1,12 +1,12 @@
 import React from "react";
 import './AddContact.css'
 import {ContactForm} from "./ContactForm";
-import {showMessageEndpoint} from "./ContactService";
+import {getContacts} from "./ContactService";
 
 export const AddContact: React.FC = () => {
 
     const showMessage = async () => {
-        await showMessageEndpoint()
+        await getContacts()
     }
 
     return (
