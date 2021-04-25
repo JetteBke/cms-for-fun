@@ -26,7 +26,7 @@ export const ContactTable = ({contacts}: Props) => {
             <tbody className='table-body'>
             {contacts.map((contact) =>
                 (
-                    <tr>
+                    <tr key={`${contact.firstName}-${contact.lastName}`}>
                         <td>{contact.title}</td>
                         <td>{contact.firstName}</td>
                         <td>{contact.lastName}</td>

@@ -3,7 +3,7 @@ import {Contact} from "./Contact";
 
 export const saveContact = async (
     contact: Contact
-): Promise<void | undefined> => {
+): Promise<undefined> => {
     try {
         await axios.post<void>(
             `/cms/api/contact/new`,
@@ -14,9 +14,7 @@ export const saveContact = async (
     }
 }
 
-export const getContacts = async (): Promise<Array<Contact>> =>
-    (
-        await axios.get<Array<Contact>>(
-            `/cms/api/contacts`
-        )
-    ).data
+export const getContacts = async (): Promise<Array<Contact>> => {
+    const response = await axios.get(`/cms/api/contacts`)
+    return response.data
+}

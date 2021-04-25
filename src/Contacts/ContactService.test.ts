@@ -1,6 +1,6 @@
 import {getContacts} from "./ContactService";
 import axios from "axios";
-import {ContactFixture} from "./Contacts";
+import {ContactFixture} from "./Contact";
 
 jest.mock('axios')
 

@@ -1,62 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import './Contacts.css'
 import {ContactTable} from "./ContactTable";
+import {getContacts} from "./ContactService";
 import {Contact} from "./Contact";
 
-export const ContactFixture: Array<Contact> = [{
-    address: "some street 12",
-    city: "cologne",
-    emailOne: "ghjk@ghjk.com",
-    emailTwo: "tyuio@78ijnm.com",
-    firstName: "Detlef",
-    lastName: "Doodle",
-    phoneOne: 3456789,
-    phoneTwo: 3456789,
-    postalCode: 8765,
-    title: "Don"
-},
-    {
-        address: "some street 12",
-        city: "cologne",
-        emailOne: "ghjk@ghjk.com",
-        emailTwo: "tyuio@78ijnm.com",
-        firstName: "Detlef",
-        lastName: "Doodle",
-        phoneOne: 3456789,
-        phoneTwo: 3456789,
-        postalCode: 8765,
-        title: "Don"
-    },
-    {
-        address: "some street 12",
-        city: "cologne",
-        emailOne: "ghjk@ghjk.com",
-        emailTwo: "tyuio@78ijnm.com",
-        firstName: "Detlef",
-        lastName: "Doodle",
-        phoneOne: 3456789,
-        phoneTwo: 3456789,
-        postalCode: 8765,
-        title: "Don"
-    },
-    {
-        address: "some street 12",
-        city: "cologne",
-        emailOne: "ghjk@ghjk.com",
-        emailTwo: "tyuio@78ijnm.com",
-        firstName: "Detlef",
-        lastName: "Doodle",
-        phoneOne: 3456789,
-        phoneTwo: 3456789,
-        postalCode: 8765,
-        title: "Don"
-    }]
-
 export const Contacts: React.FC = () => {
+
+    const [contacts, setContacts] = useState<Array<Contact>>()
+
+    React.useEffect( () => {
+        getContacts().then(resp => setContacts(resp))
+
+    },[])
+
     return (
         <div className='contacts-container'>
             <h1 className='title'>Alle Kontakte</h1>
-            <ContactTable contacts={ContactFixture}/>
+            {contacts && <ContactTable contacts={contacts}/>}
         </div>
     )
 }
