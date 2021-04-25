@@ -1,17 +1,11 @@
 import axios from 'axios'
 import {Contact} from "./Contact";
 
-export const saveContact = async (
-    contact: Contact
-): Promise<undefined> => {
-    try {
-        await axios.post<void>(
-            `/cms/api/contact/new`,
-            contact
-        )
-    } catch (err) {
-        return undefined
-    }
+export const saveContact = async (contact: Contact): Promise<void> => {
+    await axios.post(
+        `/cms/api/contact/new`,
+        contact
+    )
 }
 
 export const getContacts = async (): Promise<Array<Contact>> => {
