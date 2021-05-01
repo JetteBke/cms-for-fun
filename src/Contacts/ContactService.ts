@@ -3,7 +3,7 @@ import {Contact} from "./Contact";
 
 export const saveContact = async (contact: Contact): Promise<void> => {
     await axios.post(
-        `/cms/api/contact/new`,
+        `/cms/api/contacts/new`,
         contact
     )
 }
