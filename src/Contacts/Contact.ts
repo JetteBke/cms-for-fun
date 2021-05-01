@@ -1,4 +1,5 @@
 export interface Contact {
+    id: number
     title: string
     firstName?: string
     lastName: string
@@ -21,7 +22,8 @@ export const ContactFixture: Array<Contact> = [{
     phoneOne: 3456789,
     phoneTwo: 3456789,
     postalCode: 8765,
-    title: "Don"
+    title: "Don",
+    id: 1
 },
     {
         address: "some street 12",
@@ -33,7 +35,8 @@ export const ContactFixture: Array<Contact> = [{
         phoneOne: 3456789,
         phoneTwo: 3456789,
         postalCode: 8765,
-        title: "Don"
+        title: "Don",
+        id: 2
     },
     {
         address: "some street 12",
@@ -45,7 +48,8 @@ export const ContactFixture: Array<Contact> = [{
         phoneOne: 3456789,
         phoneTwo: 3456789,
         postalCode: 8765,
-        title: "Don"
+        title: "Don",
+        id: 3
     },
     {
         address: "some street 12",
@@ -57,5 +61,6 @@ export const ContactFixture: Array<Contact> = [{
         phoneOne: 3456789,
         phoneTwo: 3456789,
         postalCode: 8765,
-        title: "Don"
+        title: "Don",
+        id: 4
     }]
