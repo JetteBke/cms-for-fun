@@ -3,7 +3,9 @@ import { render} from '@testing-library/react';
 import App from './App';
 
 test('renders learn react link', () => {
-  render(<App />);
-  // const linkElement = screen.getByText(/learn react/i);
-  expect(true).toBe(true);
+  const wrapper = render(<App />);
+
+  expect(wrapper.getAllByRole("link")).toHaveLength(2);
+  expect(wrapper.getByText("Alle Kontakte")).toBeInTheDocument()
+  expect(wrapper.getByText("Kontakt hinzufügen")).toBeInTheDocument()
 });
