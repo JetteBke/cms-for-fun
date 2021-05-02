@@ -1,6 +1,7 @@
 import React from "react";
 import './AddContact.css'
 import {ContactForm} from "./ContactForm";
+import {saveContact} from "./ContactService";
 
 export const AddContact: React.FC = () => {
 
@@ -8,7 +9,7 @@ export const AddContact: React.FC = () => {
         <>
             <div className='add-contact-container'>
                 <h1 className='title'>Kontakt hinzufügen</h1>
-                <ContactForm/>
+                <ContactForm onSave={saveContact}/>
             </div>
         </>
     )

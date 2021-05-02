@@ -1,14 +1,14 @@
-import {getContacts} from "./ContactService";
-import {Contacts} from "./Contacts";
+import {getContact} from "./ContactService";
 import {render} from "@testing-library/react";
 import {mocked} from 'ts-jest/utils';
+import {EditContact} from "./EditContact";
 
 jest.mock('./ContactService')
 
-describe('Contacts', () => {
-    it('should pass contacts as prop to contacts table',  async() => {
+describe('EditContactForm', () => {
+    it('should show data from contact when form is rendered',  async() => {
     //    given
-        const contacts = [{
+        const contact ={
             address: "some street 12",
             city: "cologne",
             emailOne: "ghjk@ghjk.com",
@@ -20,11 +20,11 @@ describe('Contacts', () => {
             postalCode: 8765,
             title: "Don",
             id: 2
-        }]
-        mocked(getContacts).mockReturnValue(Promise.resolve(contacts))
+        }
+        mocked(getContact).mockReturnValue(Promise.resolve(contact))
     //    when
-        const wrapper = await render(<Contacts/>)
+        const wrapper = await render(<EditContact/>)
     //    then
-        expect(wrapper.getByText('some street 12')).toBeInTheDocument()
+        expect(wrapper.getByDisplayValue('some street 12')).toBeInTheDocument()
     })
 })

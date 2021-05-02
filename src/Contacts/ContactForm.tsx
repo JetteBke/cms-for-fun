@@ -1,17 +1,20 @@
 import React, {useState} from "react"
 import './ContactForm.css'
-import {saveContact} from "./ContactService";
 import {Contact} from "./Contact";
 
+interface Props {
+    contact?: Contact,
+    onSave: Function
+}
 
-export const ContactForm = () => {
+export const ContactForm = ({contact, onSave}: Props) => {
 
     const [successMessage, setSuccessMessage] = React.useState(false)
-    const [values, setValues] = useState({})
+    const [values, setValues] = useState(contact || {})
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        await saveContact(values as Contact)
+        await onSave(values as Contact)
         setSuccessMessage(true)
     }
 
@@ -32,6 +35,7 @@ export const ContactForm = () => {
                         id='title'
                         type='title'
                         onChange={onChange}
+                        value={contact?.title}
                         required
                     />
                 </div>
@@ -42,6 +46,7 @@ export const ContactForm = () => {
                             name='firstName'
                             id='firstName'
                             type='firstName'
+                            value={contact?.firstName}
                             onChange={onChange}
                         />
                     </div>
@@ -51,6 +56,7 @@ export const ContactForm = () => {
                             name='lastName'
                             id='lastName'
                             type='lastName'
+                            value={contact?.lastName}
                             onChange={onChange}
                             required
                         />
@@ -62,6 +68,7 @@ export const ContactForm = () => {
                         name='address'
                         id='address'
                         type='address'
+                        value={contact?.address}
                         onChange={onChange}
                     />
                 </div>
@@ -72,6 +79,7 @@ export const ContactForm = () => {
                             name='postalCode'
                             id='postalCode'
                             type='postalCode'
+                            value={contact?.postalCode}
                             onChange={onChange}
                         />
                     </div>
@@ -81,6 +89,7 @@ export const ContactForm = () => {
                             name='city'
                             id='city'
                             type='city'
+                            value={contact?.city}
                             onChange={onChange}
                         />
                     </div>
@@ -92,6 +101,7 @@ export const ContactForm = () => {
                             name='phoneOne'
                             id='phoneOne'
                             type='phoneOne'
+                            value={contact?.phoneOne}
                             onChange={onChange}
                         />
                     </div>
@@ -101,6 +111,7 @@ export const ContactForm = () => {
                             name='phoneTwo'
                             id='phoneTwo'
                             type='phoneTwo'
+                            value={contact?.phoneTwo}
                             onChange={onChange}
                         />
                     </div>
@@ -112,6 +123,7 @@ export const ContactForm = () => {
                             name='emailOne'
                             id='emailOne'
                             type='emailOne'
+                            value={contact?.emailOne}
                             onChange={onChange}
                         />
                     </div>
@@ -121,6 +133,7 @@ export const ContactForm = () => {
                             name='emailTwo'
                             id='emailTwo'
                             type='emailTwo'
+                            value={contact?.emailTwo}
                             onChange={onChange}
                         />
                     </div>

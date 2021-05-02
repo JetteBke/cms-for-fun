@@ -3,7 +3,7 @@ import {Contact} from "./Contact";
 import './ContactTable.css'
 
 interface Props {
-    contacts: Array<Contact>
+    contacts: Array<Contact>,
 }
 
 export const ContactTable = ({contacts}: Props) => {

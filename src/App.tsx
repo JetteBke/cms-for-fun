@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import {Contacts} from "./Contacts/Contacts";
 import {AddContact} from "./Contacts/AddContact";
+import {EditContact} from "./Contacts/EditContact";
 
 export default function BasicExample() {
   return (
@@ -36,6 +37,9 @@ export default function BasicExample() {
             </Route>
             <Route path="/add">
               <AddContact />
+            </Route>
+            <Route path="/edit">
+              <EditContact />
             </Route>
           </Switch>
         </div>
