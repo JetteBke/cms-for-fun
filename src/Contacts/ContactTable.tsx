@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {Contact} from "./Contact";
 import './ContactTable.css'
 
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export const ContactTable = ({contacts}: Props) => {
+
     return (
         <table className='contact-table'>
             <thead>
@@ -21,6 +23,7 @@ export const ContactTable = ({contacts}: Props) => {
                 <th>Email 2</th>
                 <th>Telefon 1</th>
                 <th>Telefon 2</th>
+                <th/>
             </tr>
             </thead>
             <tbody className='table-body'>
@@ -37,6 +40,7 @@ export const ContactTable = ({contacts}: Props) => {
                         <td>{contact.emailTwo}</td>
                         <td>{contact.phoneOne}</td>
                         <td>{contact.phoneTwo}</td>
+                        <Link to={`/view/${contact.id}`}>Details</Link>
                     </tr>
                 )
             )}
