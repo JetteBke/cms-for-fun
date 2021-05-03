@@ -1,5 +1,5 @@
 export interface Contact {
-    id: number
+    id?: number
     title: string
     firstName?: string
     lastName: string
@@ -10,6 +10,10 @@ export interface Contact {
     phoneTwo?: number
     emailOne?: string
     emailTwo?: string
+}
+
+export const initialEmptyContact: Contact = {
+    lastName: "", title: ""
 }
 
 export const ContactFixture: Array<Contact> = [{

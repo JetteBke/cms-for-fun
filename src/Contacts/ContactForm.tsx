@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import './ContactForm.css'
-import {Contact} from "./Contact";
+import {Contact, initialEmptyContact} from "./Contact";
 
 interface Props {
     contact?: Contact,
@@ -9,8 +9,8 @@ interface Props {
 
 export const ContactForm = ({contact, onSave}: Props) => {
 
-    const [successMessage, setSuccessMessage] = React.useState(false)
-    const [values, setValues] = useState(contact || {})
+    const [successMessage, setSuccessMessage] = useState(false)
+    const [values, setValues] = useState<Contact>(contact || initialEmptyContact)
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -35,7 +35,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                         id='title'
                         type='title'
                         onChange={onChange}
-                        value={contact?.title}
+                        value={values?.title}
                         required
                     />
                 </div>
@@ -46,7 +46,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                             name='firstName'
                             id='firstName'
                             type='firstName'
-                            value={contact?.firstName}
+                            value={values?.firstName}
                             onChange={onChange}
                         />
                     </div>
@@ -56,7 +56,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                             name='lastName'
                             id='lastName'
                             type='lastName'
-                            value={contact?.lastName}
+                            value={values?.lastName}
                             onChange={onChange}
                             required
                         />
@@ -68,7 +68,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                         name='address'
                         id='address'
                         type='address'
-                        value={contact?.address}
+                        value={values?.address}
                         onChange={onChange}
                     />
                 </div>
@@ -79,7 +79,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                             name='postalCode'
                             id='postalCode'
                             type='postalCode'
-                            value={contact?.postalCode}
+                            value={values?.postalCode}
                             onChange={onChange}
                         />
                     </div>
@@ -89,7 +89,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                             name='city'
                             id='city'
                             type='city'
-                            value={contact?.city}
+                            value={values?.city}
                             onChange={onChange}
                         />
                     </div>
@@ -101,7 +101,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                             name='phoneOne'
                             id='phoneOne'
                             type='phoneOne'
-                            value={contact?.phoneOne}
+                            value={values?.phoneOne}
                             onChange={onChange}
                         />
                     </div>
@@ -111,7 +111,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                             name='phoneTwo'
                             id='phoneTwo'
                             type='phoneTwo'
-                            value={contact?.phoneTwo}
+                            value={values?.phoneTwo}
                             onChange={onChange}
                         />
                     </div>
@@ -123,7 +123,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                             name='emailOne'
                             id='emailOne'
                             type='emailOne'
-                            value={contact?.emailOne}
+                            value={values?.emailOne}
                             onChange={onChange}
                         />
                     </div>
@@ -133,7 +133,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                             name='emailTwo'
                             id='emailTwo'
                             type='emailTwo'
-                            value={contact?.emailTwo}
+                            value={values?.emailTwo}
                             onChange={onChange}
                         />
                     </div>
