@@ -1,0 +1,32 @@
+.view-contact-container {
+    width: 75%;
+    margin: auto;
+    height: 75%;
+    background-color: aliceblue;
+    padding: 20px 20px;
+}
+
+.title {
+    padding: 15px 15px;
+}
+
+.contact-details {
+    display: flex;
+}
+
+.info-column {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+}
+
+span {
+    padding: 5px 0;
+}
+
+.title-column {
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    font-weight: bold;
+}

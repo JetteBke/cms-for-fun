@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import './EditContact.css'
+import './ViewContact.css'
 import {getContact} from "./ContactService";
 import {Contact} from "./Contact";
 import {useParams} from "react-router-dom";
@@ -19,51 +19,38 @@ export const ViewContact: React.FC = () => {
 
     return (
         <>
-            <div className='edit-contact-container'>
-                <h1 className='title'>{contact?.title} {contact?.lastName}</h1>
-                <div className='contact-details'>
-
+            <div className='view-contact-container'>
+                {contact ?
                     <div>
-                        <span>Anrede</span>
-                        <span>{contact?.title}</span>
+                        <h1 className='title'>{contact?.title} {contact?.lastName}</h1>
+                        <div className='contact-details'>
+                            <div className='title-column'>
+                                <span>Anrede</span>
+                                <span>Vorname</span>
+                                <span>Nachname</span>
+                                <span>Straße und Hausnummer</span>
+                                <span>Postleihzahl</span>
+                                <span>Stadt</span>
+                                <span>Email 1</span>
+                                <span>Email 2</span>
+                                <span>Telefon 1</span>
+                                <span>Telefon 2</span>
+                            </div>
+                            <div className='info-column'>
+                                <span>{contact?.title}</span>
+                                <span>{contact?.firstName}</span>
+                                <span>{contact?.lastName}</span>
+                                <span>{contact?.address}</span>
+                                <span>{contact?.postalCode}</span>
+                                <span>{contact?.city}</span>
+                                <span>{contact?.emailOne}</span>
+                                <span>{contact?.emailTwo}</span>
+                                <span>{contact?.phoneOne}</span>
+                                <span>{contact?.phoneTwo}</span>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <span>Vorname</span>
-                        <span>{contact?.firstName}</span>
-                    </div>
-                    <div>
-                        <span>Nachname</span>
-                        <span>{contact?.lastName}</span>
-                    </div>
-                    <div>
-                        <span>Straße und Hausnummer</span>
-                        <span>{contact?.address}</span>
-                    </div>
-                    <div>
-                        <span>Postleihzahl</span>
-                        <span>{contact?.postalCode}</span>
-                    </div>
-                    <div>
-                        <span>Stadt</span>
-                        <span>{contact?.city}</span>
-                    </div>
-                    <div>
-                        <span>Email 1</span>
-                        <span>{contact?.emailOne}</span>
-                    </div>
-                    <div>
-                        <span>Email 2</span>
-                        <span>{contact?.emailTwo}</span>
-                    </div>
-                    <div>
-                        <span>Telefon 1</span>
-                        <span>{contact?.phoneOne}</span>
-                    </div>
-                    <div>
-                        <span>Telefon 2</span>
-                        <span>{contact?.phoneTwo}</span>
-                    </div>
-                </div>
+                    : <h1>Keine Details verfügbar</h1>}
             </div>
         </>
     )
