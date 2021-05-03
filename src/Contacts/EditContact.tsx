@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './EditContact.css'
 import {ContactForm} from "./ContactForm";
-import {getContact, getContacts, updateContact} from "./ContactService";
+import {getContact, updateContact} from "./ContactService";
 import {Contact} from "./Contact";
 
 export const EditContact: React.FC = () => {
@@ -17,7 +17,8 @@ export const EditContact: React.FC = () => {
         <>
             <div className='edit-contact-container'>
                 <h1 className='title'>Kontakt bearbeiten</h1>
-                <ContactForm contact={contact} onSave={updateContact}/>
+                {contact && contact.title && contact.lastName &&
+                <ContactForm contact={contact} onSave={updateContact}/>}
             </div>
         </>
     )

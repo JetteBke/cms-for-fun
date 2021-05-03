@@ -8,6 +8,7 @@ import {
 import {Contacts} from "./Contacts/Contacts";
 import {AddContact} from "./Contacts/AddContact";
 import {EditContact} from "./Contacts/EditContact";
+import {ViewContact} from "./Contacts/ViewContact";
 
 export default function BasicExample() {
   return (
@@ -32,15 +33,10 @@ export default function BasicExample() {
           of them to render at a time
         */}
           <Switch>
-            <Route exact path="/list">
-              <Contacts />
-            </Route>
-            <Route path="/add">
-              <AddContact />
-            </Route>
-            <Route path="/edit">
-              <EditContact />
-            </Route>
+            <Route exact path="/list" component={Contacts}/>
+            <Route path="/add" component={AddContact}/>
+            <Route path="/edit" component={EditContact}/>
+            <Route exact path="/view/:contactId" component={ViewContact}/>
           </Switch>
         </div>
       </Router>
