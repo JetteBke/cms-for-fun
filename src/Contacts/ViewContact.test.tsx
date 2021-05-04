@@ -5,11 +5,6 @@ import {ViewContact} from "./ViewContact";
 import {useParams} from "react-router-dom";
 
 jest.mock('./ContactService')
-jest.mock('react-router-dom', () => ({
-    __esModule: true,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ...(jest.requireActual('react-router-dom') as any),
-    useParams: jest.fn()}))
 
 describe('ViewContact', () => {
     it('should show details of a contact',  async() => {

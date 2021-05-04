@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {Contact} from "./Contact";
 import './ContactTable.css'
 
@@ -8,6 +8,14 @@ interface Props {
 }
 
 export const ContactTable = ({contacts}: Props) => {
+
+    const history = useHistory()
+
+    const routeToDetailPage = (id?: number) => {
+        history.push({
+            pathname: `/view/${id}`,
+        })
+    }
 
     return (
         <table className='contact-table'>
@@ -40,7 +48,12 @@ export const ContactTable = ({contacts}: Props) => {
                         <td>{contact.emailTwo}</td>
                         <td>{contact.phoneOne}</td>
                         <td>{contact.phoneTwo}</td>
-                        <Link to={`/view/${contact.id}`}>Details</Link>
+                        <td>
+                            <button
+                                onClick={() => routeToDetailPage(contact.id)}>
+                                Details
+                            </button>
+                        </td>
                     </tr>
                 )
             )}

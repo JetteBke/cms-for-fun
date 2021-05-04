@@ -3,3 +3,10 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
+
+jest.mock('react-router-dom', () => ({
+    __esModule: true,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ...(jest.requireActual('react-router-dom') as any),
+    useParams: jest.fn(),
+}))
