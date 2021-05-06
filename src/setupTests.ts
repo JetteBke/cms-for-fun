@@ -9,4 +9,5 @@ jest.mock('react-router-dom', () => ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...(jest.requireActual('react-router-dom') as any),
     useParams: jest.fn(),
+    useHistory: jest.fn()
 }))

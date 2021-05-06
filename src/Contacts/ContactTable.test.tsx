@@ -2,19 +2,10 @@ import {render} from "@testing-library/react";
 import {ContactTable} from "./ContactTable";
 import {Contact} from "./Contact";
 import userEvent from "@testing-library/user-event";
+import {useHistory} from "react-router-dom";
+import { mocked } from "ts-jest/utils";
 
 jest.mock('./ContactService')
-
-const mockedFn = jest.fn()
-
-jest.mock('react-router-dom', () => ({
-    __esModule: true,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ...(jest.requireActual('react-router-dom') as any),
-    useHistory: () => ({
-        push: mockedFn
-    })
-}))
 
 describe('ContactTable', () => {
     const contactId = 100
@@ -39,11 +30,13 @@ describe('ContactTable', () => {
     })
 
     it('should have a button which sends user to detail view of a contact', async () => {
+        const mockPush = jest.fn()
+        mocked(useHistory).mockReturnValue({ push: mockPush })
         const wrapper = render(<ContactTable contacts={contacts}/>)
 
         const button = await wrapper.findByRole("button")
         userEvent.click(button)
 
-        expect(mockedFn).toHaveBeenCalledTimes(1)
+        expect(mockPush).toHaveBeenCalledTimes(1)
     })
 })
