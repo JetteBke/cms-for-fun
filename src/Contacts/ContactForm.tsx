@@ -62,15 +62,29 @@ export const ContactForm = ({contact, onSave}: Props) => {
                         />
                     </div>
                 </div>
-                <div className='form-cell'>
-                    <p className='form-cell-title'>Straße und Hausnummer</p>
-                    <input
-                        name='address'
-                        id='address'
-                        type='address'
-                        value={values?.address}
-                        onChange={onChange}
-                    />
+                <div className='form-row'>
+                    <div className='form-cell'>
+                        <p className='form-cell-title'>Firma</p>
+                        <input
+                            name='company'
+                            id='company'
+                            type='company'
+                            value={values?.company}
+                            onChange={onChange}
+                        />
+                    </div>
+                </div>
+                <div className='form-row'>
+                    <div className='form-cell'>
+                        <p className='form-cell-title'>Straße und Hausnummer</p>
+                        <input
+                            name='address'
+                            id='address'
+                            type='address'
+                            value={values?.address}
+                            onChange={onChange}
+                        />
+                    </div>
                 </div>
                 <div className='form-row'>
                     <div className='form-cell'>

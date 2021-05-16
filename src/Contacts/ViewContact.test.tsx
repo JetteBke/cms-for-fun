@@ -21,6 +21,7 @@ describe('ViewContact', () => {
             phoneTwo: 3456789,
             postalCode: 8765,
             title: "Don",
+            company: "Don GmbH",
             id: contactId
         }
         mocked(getContact).mockReturnValue(Promise.resolve(contact))

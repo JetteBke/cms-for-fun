@@ -28,6 +28,7 @@ export const ViewContact: React.FC = () => {
                                 <span>Anrede</span>
                                 <span>Vorname</span>
                                 <span>Nachname</span>
+                                <span>Firma</span>
                                 <span>Straße und Hausnummer</span>
                                 <span>Postleihzahl</span>
                                 <span>Stadt</span>
@@ -40,6 +41,7 @@ export const ViewContact: React.FC = () => {
                                 <span>{contact?.title}</span>
                                 <span>{contact?.firstName}</span>
                                 <span>{contact?.lastName}</span>
+                                <span>{contact?.company}</span>
                                 <span>{contact?.address}</span>
                                 <span>{contact?.postalCode}</span>
                                 <span>{contact?.city}</span>
