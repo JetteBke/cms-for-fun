@@ -10,12 +10,19 @@ interface Props {
 export const ContactForm = ({contact, onSave}: Props) => {
 
     const [successMessage, setSuccessMessage] = useState(false)
+    const [failureMessage, setFailureMessage] = useState(false)
     const [values, setValues] = useState<Contact>(contact || initialEmptyContact)
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        await onSave(values as Contact)
-        setSuccessMessage(true)
+        const successfulRequest = await onSave(values as Contact)
+        if (successfulRequest) {
+            setSuccessMessage(true)
+            setFailureMessage(false)
+        } else {
+            setSuccessMessage(false)
+            setFailureMessage(true)
+        }
     }
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -153,6 +160,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                     </div>
                 </div>
                 {successMessage && <p className='success-message'>Kontakt wurde gespeichert</p>}
+                {failureMessage && <p className='failure-message'>Kontakt konnte nicht gespeichert werden</p>}
                 <button className='form-submit-button' type='submit'>Speichern</button>
             </div>
         </form>

@@ -16,6 +16,7 @@ describe('contact service test', () => {
 
     it("should create a contact", async () => {
 //     given
+        axios.post.mockImplementation(() => Promise.resolve({status: 201}))
         const contact = {
             address: "some street 12",
             city: "cologne",
@@ -30,9 +31,10 @@ describe('contact service test', () => {
             id: 1234
         }
 //     when
-        await saveContact(contact)
+        const success = await saveContact(contact)
 //     then
         expect(axios.post).toHaveBeenCalledWith("/cms/api/contacts/new", contact)
+        expect(success).toBe(true)
     })
 
     it("should update a contact", async () => {
