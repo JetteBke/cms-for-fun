@@ -9,21 +9,16 @@ import {Contacts} from "./Contacts/Contacts";
 import {AddContact} from "./Contacts/AddContact";
 import {EditContact} from "./Contacts/EditContact";
 import {ViewContact} from "./Contacts/ViewContact";
+import "./App.css"
 
 export default function BasicExample() {
   return (
       <Router>
         <div>
-          <ul>
-            <li>
-              <Link to="/list">Alle Kontakte</Link>
-            </li>
-            <li>
-              <Link to="/add">Kontakt hinzufügen</Link>
-            </li>
-          </ul>
-
-          <hr />
+          <div className='navbar'>
+              <Link className='navbarLink' to="/list">Alle Kontakte</Link>
+              <Link className='navbarLink' to="/add">Kontakt hinzufügen</Link>
+          </div>
 
           {/*
           A <Switch> looks through all its children <Route>

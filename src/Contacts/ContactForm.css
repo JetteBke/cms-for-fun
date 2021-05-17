@@ -1,7 +1,6 @@
 .form-container {
     width: 75%;
     margin-left: 20px;
-    background-color: whitesmoke;
     padding: 10px 10px;
 }
 
@@ -20,16 +19,23 @@
 }
 
 .form-submit-button {
-    background-color: brown;
+    background-color: rgba(50,50,50);
     color: white;
     font-size: 14px;
     margin: 10px 10px;
     padding: 10px 10px;
-    border-radius: 5px;
+    border-radius: 3px;
+    border: none;
 }
 
 .success-message {
     background-color: bisque;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.failure-message {
+    background-color: lightcoral;
     padding: 10px 10px;
     border-radius: 5px;
 }
