@@ -14,7 +14,7 @@ describe('contact service test', () => {
         expect(result).toBe(ContactFixture)
     })
 
-    it("should create a contact", async () => {
+    it("should successfully create a contact", async () => {
 //     given
         axios.post.mockImplementation(() => Promise.resolve({status: 201}))
         const contact = {
@@ -31,14 +31,15 @@ describe('contact service test', () => {
             id: 1234
         }
 //     when
-        const success = await saveContact(contact)
+        const result = await saveContact(contact)
 //     then
         expect(axios.post).toHaveBeenCalledWith("/cms/api/contacts/new", contact)
-        expect(success).toBe(true)
+        expect(result).toBe(true)
     })
 
-    it("should update a contact", async () => {
+    it("should successfully update a contact", async () => {
 //     given
+        axios.put.mockImplementation(() => Promise.resolve({status: 200}))
         const contact = {
             address: "some street 12",
             city: "cologne",
@@ -53,9 +54,10 @@ describe('contact service test', () => {
             id: 1235
         }
 //     when
-        await updateContact(contact)
+        const result = await updateContact(contact)
 //     then
         expect(axios.put).toHaveBeenCalledWith("/cms/api/contacts/edit", contact)
+        expect(result).toBe(true)
     })
 
     it("should get a contact by id", async () => {

@@ -13,11 +13,16 @@ export const saveContact = async (contact: Contact): Promise<boolean> => {
     }
 }
 
-export const updateContact = async (contact: Contact): Promise<void> => {
-    await axios.put(
-        `/cms/api/contacts/edit`,
-        contact
-    )
+export const updateContact = async (contact: Contact): Promise<boolean> => {
+    try {
+        const response = await axios.put(
+            `/cms/api/contacts/edit`,
+            contact
+        )
+        return (response.status === 200)
+    } catch (err) {
+        return false
+    }
 }
 
 export const getContacts = async (): Promise<Array<Contact>> => {
