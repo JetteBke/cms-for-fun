@@ -11,13 +11,11 @@
 }
 
 .contact-details {
-    display: flex;
+    padding: 15px 15px;
 }
 
-.info-column {
+.info-row {
     display: flex;
-    width: 25%;
-    flex-direction: column;
 }
 
 span {

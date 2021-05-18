@@ -30,7 +30,7 @@ export default function BasicExample() {
           <Switch>
             <Route exact path="/list" component={Contacts}/>
             <Route path="/add" component={AddContact}/>
-            <Route path="/edit" component={EditContact}/>
+            <Route path="/edit/:contactId" component={EditContact}/>
             <Route exact path="/view/:contactId" component={ViewContact}/>
           </Switch>
         </div>

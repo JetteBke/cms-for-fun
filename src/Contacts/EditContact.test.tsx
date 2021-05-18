@@ -29,5 +29,6 @@ describe('EditContactForm', () => {
         const wrapper = await render(<EditContact/>)
     //    then
         expect(wrapper.getByDisplayValue('some street 12')).toBeInTheDocument()
+        expect(getContact).toHaveBeenCalledWith(contactId)
     })
 })

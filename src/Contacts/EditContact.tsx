@@ -16,15 +16,15 @@ export const EditContact: React.FC = () => {
 
     React.useEffect( () => {
         getContact(parseInt(contactId)).then(resp => setContact(resp))
-
     },[])
 
     return (
         <>
             <div className='edit-contact-container'>
                 <h1 className='title'>Kontakt bearbeiten</h1>
-                {contact && contact.title && contact.lastName &&
-                <ContactForm contact={contact} onSave={updateContact}/>}
+                {contact ?
+                <ContactForm contact={contact} onSave={updateContact}/>
+                : null}
             </div>
         </>
     )
