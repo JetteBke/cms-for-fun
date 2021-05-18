@@ -52,7 +52,7 @@ export const ViewContact: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    : <h1>Keine Details verfügbar</h1>}
+                    : <h1 className='title'>Keine Details verfügbar</h1>}
             </div>
         </>
     )

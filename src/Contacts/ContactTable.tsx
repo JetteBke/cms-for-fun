@@ -17,6 +17,12 @@ export const ContactTable = ({contacts}: Props) => {
         })
     }
 
+    const routeToEditPage = (id?: number) => {
+        history.push({
+            pathname: `/edit/${id}`,
+        })
+    }
+
     return (
         <table className='contact-table'>
             <thead>
@@ -52,6 +58,10 @@ export const ContactTable = ({contacts}: Props) => {
                             <button
                                 onClick={() => routeToDetailPage(contact.id)}>
                                 Details
+                            </button>
+                            <button
+                                onClick={() => routeToEditPage(contact.id)}>
+                                Bearbeiten
                             </button>
                         </td>
                     </tr>
