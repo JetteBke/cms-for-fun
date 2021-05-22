@@ -30,6 +30,7 @@ export const ContactTable = ({contacts}: Props) => {
                 <th>Anrede</th>
                 <th>Vorname</th>
                 <th>Nachname</th>
+                <th>Firma</th>
                 <th>Straße und Hausnummer</th>
                 <th>Postleihzahl</th>
                 <th>Stadt</th>
@@ -47,6 +48,7 @@ export const ContactTable = ({contacts}: Props) => {
                         <td>{contact.title}</td>
                         <td>{contact.firstName}</td>
                         <td>{contact.lastName}</td>
+                        <td>{contact.company}</td>
                         <td>{contact.address}</td>
                         <td>{contact.postalCode}</td>
                         <td>{contact.city}</td>
