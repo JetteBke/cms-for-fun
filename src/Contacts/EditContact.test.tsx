@@ -1,4 +1,4 @@
-import {getContact} from "./ContactService";
+import {getContact, updateContact} from "./ContactService";
 import {render} from "@testing-library/react";
 import {mocked} from 'ts-jest/utils';
 import {EditContact} from "./EditContact";
@@ -31,4 +31,31 @@ describe('EditContactForm', () => {
         expect(wrapper.getByDisplayValue('some street 12')).toBeInTheDocument()
         expect(getContact).toHaveBeenCalledWith(contactId)
     })
+
+    // TODO make this pass
+    // it('should save new data when user clicks save',  async() => {
+    //     //    given
+    //     const contactId = 2
+    //     const contact ={
+    //         address: "some street 12",
+    //         city: "cologne",
+    //         emailOne: "ghjk@ghjk.com",
+    //         emailTwo: "tyuio@78ijnm.com",
+    //         firstName: "Detlef",
+    //         lastName: "Doodle",
+    //         phoneOne: 3456789,
+    //         phoneTwo: 3456789,
+    //         postalCode: 8765,
+    //         title: "Don",
+    //         id: contactId
+    //     }
+    //     mocked(getContact).mockReturnValue(Promise.resolve(contact))
+    //     mocked(updateContact).mockReturnValue(Promise.resolve(contact))
+    //     mocked(useParams).mockReturnValue({contactId: contactId.toString()})
+    //     //    when
+    //     const wrapper = await render(<EditContact/>)
+    //     //    then
+    //     expect(wrapper.getByDisplayValue('some street 12')).toBeInTheDocument()
+    //     expect(getContact).toHaveBeenCalledWith(contactId)
+    // })
 })
