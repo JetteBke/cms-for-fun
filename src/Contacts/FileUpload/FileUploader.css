@@ -1,0 +1,31 @@
+.file-uploader-container {
+    width: 75%;
+    margin: auto;
+    height: 75%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    padding: 0px 15px;
+}
+
+.upload-title {
+    padding-top: 15px;
+}
+
+.file-input-form {
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+}
+
+.file-input-title {
+    padding-bottom: 15px;
+}
+
+.file-uploader-button {
+    background-color: rgba(50,50,50);
+    color: white;
+    font-size: 14px;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border: none;
+}
