@@ -34,7 +34,18 @@ describe('ContactTable', () => {
         mocked(useHistory).mockReturnValue({ push: mockPush })
         const wrapper = render(<ContactTable contacts={contacts}/>)
 
-        const button = await wrapper.findByRole("button")
+        const button = await wrapper.findByText("Details")
+        userEvent.click(button)
+
+        expect(mockPush).toHaveBeenCalledTimes(1)
+    })
+
+    it('should have a button which sends user to edit view of a contact', async () => {
+        const mockPush = jest.fn()
+        mocked(useHistory).mockReturnValue({ push: mockPush })
+        const wrapper = render(<ContactTable contacts={contacts}/>)
+
+        const button = await wrapper.findByText("Bearbeiten")
         userEvent.click(button)
 
         expect(mockPush).toHaveBeenCalledTimes(1)
