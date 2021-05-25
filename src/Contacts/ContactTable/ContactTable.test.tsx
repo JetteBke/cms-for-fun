@@ -1,6 +1,6 @@
 import {render} from "@testing-library/react";
 import {ContactTable} from "./ContactTable";
-import {Contact} from "./Contact";
+import {Contact} from "../Contact";
 import userEvent from "@testing-library/user-event";
 import {useHistory} from "react-router-dom";
 import { mocked } from "ts-jest/utils";

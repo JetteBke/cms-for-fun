@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import './ContactForm.css'
-import {Contact, initialEmptyContact} from "./Contact";
+import {Contact, initialEmptyContact} from "../Contact";
 
 interface Props {
     contact?: Contact,
@@ -15,6 +15,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
         const success = await onSave(values as Contact)
         setSuccessMessage(success)
         setFailureMessage(!success)

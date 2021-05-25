@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import {Contact} from "./Contact";
+import {Contact} from "../Contact";
 import './ContactTable.css'
 
 interface Props {

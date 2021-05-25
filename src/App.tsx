@@ -6,11 +6,11 @@ import {
     Link
 } from 'react-router-dom'
 import {Contacts} from "./Contacts/Contacts";
-import {AddContact} from "./Contacts/AddContact";
-import {EditContact} from "./Contacts/EditContact";
-import {ViewContact} from "./Contacts/ViewContact";
+import {AddContact} from "./Contacts/AddContact/AddContact";
+import {EditContact} from "./Contacts/EditContact/EditContact";
+import {ViewContact} from "./Contacts/ViewContact/ViewContact";
 import "./App.css"
-import {FileUploader} from "./Contacts/FileUpload/FileUploader";
+import {FileUploader} from "./FileUpload/FileUploader";
 
 export default function BasicExample() {
     return (

@@ -3,7 +3,7 @@ import {ContactForm} from "./ContactForm";
 import userEvent from "@testing-library/user-event";
 
 describe('ContactForm', () => {
-    it('should show a success message on successful save', async () => {
+    it('should show a success message when backend saves contact', async () => {
         //    given
         const fakeSave = jest.fn(() => true)
         const wrapper = render(<ContactForm onSave={fakeSave}/>)
@@ -13,8 +13,7 @@ describe('ContactForm', () => {
         expect(wrapper.getByText('Kontakt wurde gespeichert')).toBeInTheDocument()
     })
 
-    //TODO: was ist mit den mandatory fields?
-    it('should show a failure message on unsuccessful save', async() => {
+    it('should show a failure message when backend returns failure', async() => {
         //    given
         const fakeSave = jest.fn(() => false)
         const wrapper = render(<ContactForm onSave={fakeSave}/>)

@@ -1,4 +1,4 @@
-import {getContact} from "./ContactService";
+import {getContact} from "../ContactService";
 import {render} from "@testing-library/react";
 import {mocked} from 'ts-jest/utils';
 import {ViewContact} from "./ViewContact";

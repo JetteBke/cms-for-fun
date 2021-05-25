@@ -31,8 +31,8 @@ export const FileUploader: React.FC = () => {
 
     return (
         <>
-            <div className='file-uploader-container'>
-                <h1 className='upload-title'>Datei hochladen</h1>
+            <div className='container'>
+                <h1 className='title'>Datei hochladen</h1>
                 <p>Nur CSV Dateien werden akzeptiert. <br/>
                 Die Kontaktdaten aus der hochgeladenen Datei werden direkt in der Datenbank gespeichert, vorausgesetzt das Format ist in Ordnung.</p>
                 <div className='file-input-form'>

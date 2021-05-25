@@ -1,8 +1,7 @@
 import React, {useState} from "react";
-import './EditContact.css'
-import {ContactForm} from "./ContactForm";
-import {getContact, updateContact} from "./ContactService";
-import {Contact} from "./Contact";
+import {ContactForm} from "../ContactForm/ContactForm";
+import {getContact, updateContact} from "../ContactService";
+import {Contact} from "../Contact";
 import {useParams} from "react-router-dom";
 
 interface Params {
@@ -20,7 +19,7 @@ export const EditContact: React.FC = () => {
 
     return (
         <>
-            <div className='edit-contact-container'>
+            <div className='container'>
                 <h1 className='title'>Kontakt bearbeiten</h1>
                 {contact ?
                 <ContactForm contact={contact} onSave={updateContact}/>

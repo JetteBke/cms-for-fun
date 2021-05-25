@@ -1,6 +1,5 @@
 import React, {useState} from "react";
-import './Contacts.css'
-import {ContactTable} from "./ContactTable";
+import {ContactTable} from "./ContactTable/ContactTable";
 import {getContacts} from "./ContactService";
 import {Contact} from "./Contact";
 
@@ -14,7 +13,7 @@ export const Contacts: React.FC = () => {
     },[])
 
     return (
-        <div className='contacts-container'>
+        <div className='container'>
             <h1 className='title'>Alle Kontakte</h1>
             {contacts && <ContactTable contacts={contacts}/>}
         </div>

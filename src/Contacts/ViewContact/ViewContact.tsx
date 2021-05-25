@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './ViewContact.css'
-import {getContact} from "./ContactService";
-import {Contact} from "./Contact";
+import {getContact} from "../ContactService";
+import {Contact} from "../Contact";
 import {useParams} from "react-router-dom";
 
 interface Params {
@@ -19,7 +19,7 @@ export const ViewContact: React.FC = () => {
 
     return (
         <>
-            <div className='view-contact-container'>
+            <div className='container'>
                 {contact ?
                     <div>
                         <h1 className='title'>{contact?.title} {contact?.lastName}</h1>
