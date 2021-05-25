@@ -5,7 +5,7 @@ import {EditContact} from "./EditContact";
 import {useParams} from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 
-jest.mock('./ContactService')
+jest.mock('../ContactService')
 
 describe('EditContactForm', () => {
     const contactId = 2

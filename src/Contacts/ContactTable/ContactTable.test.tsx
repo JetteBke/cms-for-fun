@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 import {useHistory} from "react-router-dom";
 import { mocked } from "ts-jest/utils";
 
-jest.mock('./ContactService')
+jest.mock('../ContactService')
 
 describe('ContactTable', () => {
     const contactId = 100

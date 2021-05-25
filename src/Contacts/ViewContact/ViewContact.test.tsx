@@ -4,7 +4,7 @@ import {mocked} from 'ts-jest/utils';
 import {ViewContact} from "./ViewContact";
 import {useParams} from "react-router-dom";
 
-jest.mock('./ContactService')
+jest.mock('../ContactService')
 
 describe('ViewContact', () => {
     it('should show details of a contact',  async() => {
