@@ -7,19 +7,48 @@ import {uploadFile} from "./FileUploadService";
 jest.mock('./FileUploadService')
 
 describe('FileUploader', () => {
-    it('should upload a file to backend', () => {
+
+    const file = new File(['hello', 'world'], 'hello.csv', {type: 'csv'})
+    let formData = new FormData()
+    formData.append("file", file)
+
+    it('should upload a file to backend and show a success message', async () => {
         //    given
         mocked(uploadFile).mockReturnValue(Promise.resolve(true))
-        const file = new File(['hello', 'world'], 'hello.csv', {type: 'csv'})
-        let formData = new FormData()
-        formData.append("file", file)
+        const wrapper = render(<FileUploader/>)
+
+        //    when
+        const input = wrapper.getByLabelText("Datei Input")
+        userEvent.upload(input, file)
+        userEvent.click(wrapper.getByRole('button'))
+
+        await Promise.resolve()
+
+        //    then
+        expect(uploadFile).toHaveBeenCalledWith(formData)
+        expect(wrapper.getByText('Datei wurde erfolgreich hochgeladen')).toBeInTheDocument()
+    })
+
+    it('should show a failure message when request to backend fails', async () => {
+        //    given
+        mocked(uploadFile).mockReturnValue(Promise.resolve(false))
         const wrapper = render(<FileUploader/>)
         //    when
         const input = wrapper.getByLabelText("Datei Input")
         userEvent.upload(input, file)
         userEvent.click(wrapper.getByRole('button'))
+
+        await Promise.resolve()
         //    then
-        // expect(wrapper.getByText('Datei wurde erfolgreich hochgeladen')).toBeInTheDocument()
-        expect(uploadFile).toHaveBeenCalledWith(formData)
+        expect(wrapper.getByText('Datei konnte nicht hochgeladen werden')).toBeInTheDocument()
+    })
+
+    it('should show a failure message when no file was selected for upload', () => {
+        //    given
+        const wrapper = render(<FileUploader/>)
+        //    when
+        userEvent.click(wrapper.getByRole('button'))
+        //    then
+        expect(wrapper.getByText('Keine Datei ausgewählt')).toBeInTheDocument()
     })
 })

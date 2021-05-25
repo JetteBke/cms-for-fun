@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import './FileUploader.css'
 import {uploadFile} from "./FileUploadService";
 
 export const FileUploader: React.FC = () => {
 
+    const [successMessage, setSuccessMessage] = useState(false)
+    const [failureMessage, setFailureMessage] = useState(false)
+    const [noFileMessage, setNoFileMessage] = useState(false)
     const [file, setFile] = React.useState<FileList | null>()
 
     const onFileChange = (event: React.ChangeEvent<HTMLInputElement>)  => {
@@ -11,13 +14,19 @@ export const FileUploader: React.FC = () => {
     }
 
     const onFileUpload = async () => {
+        setFailureMessage(false)
+        setSuccessMessage(false)
+        setNoFileMessage(false)
         if (file) {
             let formData = new FormData()
             formData.append("file", file[0])
-
-            return await uploadFile(formData)
+            const success = await uploadFile(formData)
+            setFailureMessage(!success)
+            setSuccessMessage(success)
+            return
         }
-        return false
+        setNoFileMessage(true)
+        setSuccessMessage(true)
     }
 
     return (
@@ -34,6 +43,9 @@ export const FileUploader: React.FC = () => {
                         onChange={onFileChange}
                     />
                 </div>
+                {successMessage && <p className='success-message'>Datei wurde erfolgreich hochgeladen</p>}
+                {failureMessage && <p className='failure-message'>Datei konnte nicht hochgeladen werden</p>}
+                {noFileMessage && <p className='failure-message'>Keine Datei ausgewählt</p>}
                 <button className='file-uploader-button' onClick={onFileUpload}>Jetzt hinzufügen</button>
             </div>
         </>
