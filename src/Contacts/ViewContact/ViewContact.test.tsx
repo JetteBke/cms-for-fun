@@ -3,6 +3,7 @@ import {render} from "@testing-library/react";
 import {mocked} from 'ts-jest/utils';
 import {ViewContact} from "./ViewContact";
 import {useParams} from "react-router-dom";
+import {act} from "react-dom/test-utils";
 
 jest.mock('../ContactService')
 
@@ -27,7 +28,8 @@ describe('ViewContact', () => {
         mocked(getContact).mockReturnValue(Promise.resolve(contact))
         mocked(useParams).mockReturnValue({contactId: contactId.toString()})
     //    when
-        const wrapper = await render(<ViewContact/>)
+        const wrapper = render(<ViewContact/>)
+        await act(() => Promise.resolve())
     //    then
         expect(wrapper.getByText('some street 12')).toBeInTheDocument()
         expect(getContact).toHaveBeenCalledWith(contactId)

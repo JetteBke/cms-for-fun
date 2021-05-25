@@ -1,9 +1,9 @@
-import {getContact, updateContact} from "../ContactService";
+import {getContact} from "../ContactService";
 import {render} from "@testing-library/react";
 import {mocked} from 'ts-jest/utils';
 import {EditContact} from "./EditContact";
 import {useParams} from "react-router-dom";
-import userEvent from "@testing-library/user-event";
+import {act} from "react-dom/test-utils";
 
 jest.mock('../ContactService')
 
@@ -28,7 +28,8 @@ describe('EditContactForm', () => {
         mocked(getContact).mockReturnValue(Promise.resolve(contact))
         mocked(useParams).mockReturnValue({contactId: contactId.toString()})
         //    when
-        const wrapper = await render(<EditContact/>)
+        const wrapper = render(<EditContact/>)
+        await act(() => Promise.resolve())
         //    then
         expect(wrapper.getByDisplayValue('some street 12')).toBeInTheDocument()
         expect(getContact).toHaveBeenCalledWith(contactId)

@@ -3,6 +3,7 @@ import {FileUploader} from "./FileUploader";
 import userEvent from "@testing-library/user-event";
 import {mocked} from "ts-jest/utils";
 import {uploadFile} from "./FileUploadService";
+import {act} from "react-dom/test-utils";
 
 jest.mock('./FileUploadService')
 
@@ -22,7 +23,7 @@ describe('FileUploader', () => {
         userEvent.upload(input, file)
         userEvent.click(wrapper.getByRole('button'))
 
-        await Promise.resolve()
+        await act(() => Promise.resolve())
 
         //    then
         expect(uploadFile).toHaveBeenCalledWith(formData)
@@ -38,7 +39,7 @@ describe('FileUploader', () => {
         userEvent.upload(input, file)
         userEvent.click(wrapper.getByRole('button'))
 
-        await Promise.resolve()
+        await act(() => Promise.resolve())
         //    then
         expect(wrapper.getByText('Datei konnte nicht hochgeladen werden')).toBeInTheDocument()
     })

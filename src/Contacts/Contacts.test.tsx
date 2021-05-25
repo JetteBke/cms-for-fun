@@ -2,6 +2,7 @@ import {getContacts} from "./ContactService";
 import {Contacts} from "./Contacts";
 import {render} from "@testing-library/react";
 import {mocked} from 'ts-jest/utils';
+import {act} from "react-dom/test-utils";
 
 jest.mock('./ContactService')
 
@@ -23,7 +24,8 @@ describe('Contacts', () => {
         }]
         mocked(getContacts).mockReturnValue(Promise.resolve(contacts))
     //    when
-        const wrapper = await render(<Contacts/>)
+        const wrapper = render(<Contacts/>)
+        await act(() => Promise.resolve())
     //    then
         expect(wrapper.getByText('some street 12')).toBeInTheDocument()
     })
