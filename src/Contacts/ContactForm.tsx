@@ -15,14 +15,9 @@ export const ContactForm = ({contact, onSave}: Props) => {
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const successfulRequest = await onSave(values as Contact)
-        if (successfulRequest) {
-            setSuccessMessage(true)
-            setFailureMessage(false)
-        } else {
-            setSuccessMessage(false)
-            setFailureMessage(true)
-        }
+        const success = await onSave(values as Contact)
+        setSuccessMessage(success)
+        setFailureMessage(!success)
     }
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {

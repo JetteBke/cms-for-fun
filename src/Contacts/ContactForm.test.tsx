@@ -13,6 +13,7 @@ describe('ContactForm', () => {
         expect(wrapper.getByText('Kontakt wurde gespeichert')).toBeInTheDocument()
     })
 
+    //TODO: was ist mit den mandatory fields?
     it('should show a failure message on unsuccessful save', async() => {
         //    given
         const fakeSave = jest.fn(() => false)
