@@ -1,16 +1,11 @@
 import React from 'react'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from 'react-router-dom'
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom'
 import {Contacts} from "./Contacts/Contacts";
 import {AddContact} from "./Contacts/AddContact/AddContact";
 import {EditContact} from "./Contacts/EditContact/EditContact";
-import {ViewContact} from "./Contacts/ViewContact/ViewContact";
 import "./App.css"
 import {FileUploader} from "./FileUpload/FileUploader";
+import {DetailPage} from "./Contacts/DetailPage";
 
 export default function BasicExample() {
     return (
@@ -33,7 +28,7 @@ export default function BasicExample() {
                     <Route exact path="/list" component={Contacts}/>
                     <Route path="/add" component={AddContact}/>
                     <Route path="/edit/:contactId" component={EditContact}/>
-                    <Route exact path="/view/:contactId" component={ViewContact}/>
+                    <Route exact path="/view/:contactId" component={DetailPage}/>
                     <Route path="/fileUpload" component={FileUploader}/>
                 </Switch>
             </div>
