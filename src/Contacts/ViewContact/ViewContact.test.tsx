@@ -10,7 +10,6 @@ jest.mock('../ContactService')
 describe('ViewContact', () => {
     it('should show details of a contact',  async() => {
     //    given
-        const contactId = 2
         const contact ={
             address: "some street 12",
             city: "cologne",
@@ -19,19 +18,24 @@ describe('ViewContact', () => {
             firstName: "Detlef",
             lastName: "Doodle",
             phoneOne: 3456789,
-            phoneTwo: 3456789,
+            phoneTwo: 3456788,
             postalCode: 8765,
             title: "Don",
             company: "Don GmbH",
-            id: contactId
+            id: 2
         }
-        mocked(getContact).mockReturnValue(Promise.resolve(contact))
-        mocked(useParams).mockReturnValue({contactId: contactId.toString()})
     //    when
-        const wrapper = render(<ViewContact/>)
-        await act(() => Promise.resolve())
+        const wrapper = render(<ViewContact contact={contact}/>)
     //    then
         expect(wrapper.getByText('some street 12')).toBeInTheDocument()
-        expect(getContact).toHaveBeenCalledWith(contactId)
+        expect(wrapper.getByText('cologne')).toBeInTheDocument()
+        expect(wrapper.getByText("ghjk@ghjk.com")).toBeInTheDocument()
+        expect(wrapper.getByText("tyuio@78ijnm.com")).toBeInTheDocument()
+        expect(wrapper.getByText("Detlef")).toBeInTheDocument()
+        expect(wrapper.getByText("Doodle")).toBeInTheDocument()
+        expect(wrapper.getByText('3456789')).toBeInTheDocument()
+        expect(wrapper.getByText('3456788')).toBeInTheDocument()
+        expect(wrapper.getByText('8765')).toBeInTheDocument()
+        expect(wrapper.getByText("Don")).toBeInTheDocument()
     })
 })
