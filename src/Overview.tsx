@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import {ContactTable} from "./ContactTable/ContactTable";
-import {getContacts} from "./ContactService";
-import {Contact} from "./Contact";
+import {ContactTable} from "./Contacts/ContactTable/ContactTable";
+import {getContacts} from "./Contacts/ContactService";
+import {Contact} from "./Contacts/Contact";
 
-export const Contacts: React.FC = () => {
+export const Overview: React.FC = () => {
 
     const [contacts, setContacts] = useState<Array<Contact>>()
 

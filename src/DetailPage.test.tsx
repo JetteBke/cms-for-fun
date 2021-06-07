@@ -2,10 +2,13 @@ import {render} from "@testing-library/react";
 import {act} from "react-dom/test-utils";
 import {DetailPage} from "./DetailPage";
 import {mocked} from "ts-jest/utils";
-import {getContact} from "./ContactService";
+import {getContact} from "./Contacts/ContactService";
 import {useParams} from "react-router-dom";
+import userEvent from "@testing-library/user-event";
+import {saveNote} from "./Notes/NoteService";
 
-jest.mock('./ContactService')
+jest.mock('./Contacts/ContactService')
+jest.mock('./Notes/NoteService')
 
 describe('DetailPage', () => {
     const contactId = 2
@@ -23,14 +26,25 @@ describe('DetailPage', () => {
         id: contactId
     }
 
-    it('should pass contact id as prop to detail contact view',  async() => {
-    //    given
+    beforeEach(() => {
         mocked(getContact).mockReturnValue(Promise.resolve(contact))
+        mocked(saveNote).mockReturnValue(Promise.resolve())
         mocked(useParams).mockReturnValue({contactId: contactId.toString()})
-    //    when
+    })
+
+    it('should pass contact id as prop to detail contact view',  async() => {
         const wrapper = render(<DetailPage/>)
         await act(() => Promise.resolve())
-    //    then
+
         expect(wrapper.getByText('some street 12')).toBeInTheDocument()
+    })
+
+    it('should save a note and send it to the service on submit', async() => {
+        const wrapper = render(<DetailPage/>)
+        await act(() => Promise.resolve())
+
+        userEvent.click(wrapper.getByRole('button'))
+
+        expect(saveNote).toHaveBeenCalledWith({})
     })
 })

@@ -1,5 +1,7 @@
 .contact-details {
     padding: 15px 15px;
+    width: 30%;
+    margin-right: 110px;
 }
 
 .info-row {
@@ -12,7 +14,7 @@ span {
 
 .title-column {
     display: flex;
-    width: 25%;
+    width: 60%;
     flex-direction: column;
     font-weight: bold;
 }

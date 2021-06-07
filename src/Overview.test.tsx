@@ -1,10 +1,10 @@
-import {getContacts} from "./ContactService";
-import {Contacts} from "./Contacts";
+import {getContacts} from "./Contacts/ContactService";
+import {Overview} from "./Overview";
 import {render} from "@testing-library/react";
 import {mocked} from 'ts-jest/utils';
 import {act} from "react-dom/test-utils";
 
-jest.mock('./ContactService')
+jest.mock('./Contacts/ContactService')
 
 describe('Contacts', () => {
     it('should pass contacts as prop to contacts table',  async() => {
@@ -24,7 +24,7 @@ describe('Contacts', () => {
         }]
         mocked(getContacts).mockReturnValue(Promise.resolve(contacts))
     //    when
-        const wrapper = render(<Contacts/>)
+        const wrapper = render(<Overview/>)
         await act(() => Promise.resolve())
     //    then
         expect(wrapper.getByText('some street 12')).toBeInTheDocument()
