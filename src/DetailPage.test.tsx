@@ -11,6 +11,7 @@ jest.mock('./Contacts/ContactService')
 jest.mock('./Notes/NoteService')
 
 describe('DetailPage', () => {
+    const mockedDateNow = 1487076708000 //14.02.2017
     const contactId = 2
     const contact = {
         address: "some street 12",
@@ -27,6 +28,7 @@ describe('DetailPage', () => {
     }
 
     beforeEach(() => {
+        Date.now = jest.fn(() => mockedDateNow)
         mocked(getContact).mockReturnValue(Promise.resolve(contact))
         mocked(saveNote).mockReturnValue(Promise.resolve())
         mocked(useParams).mockReturnValue({contactId: contactId.toString()})
@@ -43,9 +45,15 @@ describe('DetailPage', () => {
         const wrapper = render(<DetailPage/>)
         await act(() => Promise.resolve())
 
+        userEvent.type(wrapper.getByRole('textbox'), 'This is a note.')
         userEvent.click(wrapper.getByRole('button'))
 
-        // TODO call with correct arguments and mock Date.now
-        expect(saveNote).toHaveBeenCalledTimes(1)
+        expect(saveNote).toHaveBeenCalledWith({
+                "createdAt": mockedDateNow,
+                "text": 'This is a note.',
+                "updatedAt": mockedDateNow
+            },
+            contactId.toString()
+        )
     })
 })
