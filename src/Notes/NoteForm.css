@@ -1,3 +1,13 @@
 .note-form {
     display: block;
 }
+
+.note-form-submit-button {
+    margin-top: 10px;
+    background-color: rgb(50,50,50);
+    color: white;
+    font-size: 14px;
+    padding: 10px 10px;
+    border-radius: 3px;
+    border: none;
+}

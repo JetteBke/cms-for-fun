@@ -31,7 +31,7 @@ export const NoteForm = ({onSave}: Props) => {
                         required
                         placeholder='Text eingeben'
                     />
-                    <button className='form-submit-button' type='submit'>Speichern</button>
+                    <button className='note-form-submit-button' type='submit'>Speichern</button>
                 </div>
             </form>
         </div>

@@ -12,3 +12,8 @@ export const saveNote = async (note: Note, contactId: string): Promise<any> => {
         return false
     }
 }
+
+export const getNotes = async (contactId: string): Promise<Array<Note>> => {
+    const response = await axios.get(`/cms/api/contact/${contactId}/notes`)
+    return response.data
+}

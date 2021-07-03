@@ -5,7 +5,8 @@ import {mocked} from "ts-jest/utils";
 import {getContact} from "./Contacts/ContactService";
 import {useParams} from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import {saveNote} from "./Notes/NoteService";
+import {getNotes, saveNote} from "./Notes/NoteService";
+import {NoteFixture} from "./Notes/Note";
 
 jest.mock('./Contacts/ContactService')
 jest.mock('./Notes/NoteService')
@@ -30,6 +31,7 @@ describe('DetailPage', () => {
     beforeEach(() => {
         Date.now = jest.fn(() => mockedDateNow)
         mocked(getContact).mockReturnValue(Promise.resolve(contact))
+        mocked(getNotes).mockReturnValue(Promise.resolve(NoteFixture))
         mocked(saveNote).mockReturnValue(Promise.resolve())
         mocked(useParams).mockReturnValue({contactId: contactId.toString()})
     })
@@ -47,6 +49,7 @@ describe('DetailPage', () => {
 
         userEvent.type(wrapper.getByRole('textbox'), 'This is a note.')
         userEvent.click(wrapper.getByRole('button'))
+        await act(() => Promise.resolve())
 
         expect(saveNote).toHaveBeenCalledWith({
                 "createdAt": mockedDateNow,
