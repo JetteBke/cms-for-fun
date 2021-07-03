@@ -19,7 +19,7 @@
 }
 
 .form-submit-button {
-    background-color: rgba(50,50,50);
+    background-color: rgb(50,50,50);
     color: white;
     font-size: 14px;
     margin: 10px 10px;
@@ -29,13 +29,14 @@
 }
 
 .success-message {
-    background-color: bisque;
-    padding: 10px 10px;
-    border-radius: 5px;
+    border-radius: 3px;
+    border: 1px solid seagreen;
+    color: seagreen;
+    padding: 5px 5px;
+    width: fit-content;
 }
 
 .failure-message {
-    background-color: lightcoral;
     padding: 10px 10px;
     border-radius: 5px;
 }
