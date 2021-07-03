@@ -1,3 +1,9 @@
 .detail-container {
     display: flex;
 }
+
+.create-note-container {
+    height: 50%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    padding: 10px 10px;
+}

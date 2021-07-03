@@ -56,4 +56,28 @@ describe('DetailPage', () => {
             contactId.toString()
         )
     })
+
+    it('should show a success message when note is saved', async () => {
+        mocked(saveNote).mockReturnValue(Promise.resolve(true))
+        const wrapper = render(<DetailPage/>)
+        await act(() => Promise.resolve())
+
+        userEvent.type(wrapper.getByRole('textbox'), 'This is a note.')
+        userEvent.click(wrapper.getByRole('button'))
+        await act(() => Promise.resolve())
+
+        expect(wrapper.getByText('Notiz wurde gespeichert')).toBeInTheDocument()
+    })
+
+    it('should show a failure message when note is not saved successfully', async() => {
+        mocked(saveNote).mockReturnValue(Promise.resolve(false))
+        const wrapper = render(<DetailPage/>)
+        await act(() => Promise.resolve())
+
+        userEvent.type(wrapper.getByRole('textbox'), 'This is a note.')
+        userEvent.click(wrapper.getByRole('button'))
+        await act(() => Promise.resolve())
+
+        expect(wrapper.getByText('Notiz konnte nicht gespeichert werden')).toBeInTheDocument()
+    })
 })

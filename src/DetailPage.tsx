@@ -16,6 +16,8 @@ interface Params {
 export const DetailPage: React.FC = () => {
 
     const {contactId} = useParams<Params>()
+    const [successMessage, setSuccessMessage] = useState(false)
+    const [failureMessage, setFailureMessage] = useState(false)
     const [contact, setContact] = useState<Contact>()
 
     React.useEffect(() => {
@@ -29,7 +31,9 @@ export const DetailPage: React.FC = () => {
             text: content
         }
 
-        await saveNote(note, contactId)
+        const success = await saveNote(note, contactId)
+        setSuccessMessage(success)
+        setFailureMessage(!success)
     }
 
     return (
@@ -39,7 +43,11 @@ export const DetailPage: React.FC = () => {
                     <h1 className='title'>{contact?.title} {contact?.lastName}</h1>
                     <div className='detail-container'>
                         <ViewContact contact={contact}/>
-                        <NoteForm onSave={submitNote}/>
+                        <div className='create-note-container'>
+                            <NoteForm onSave={submitNote}/>
+                            {successMessage && <p className='success-message'>Notiz wurde gespeichert</p>}
+                            {failureMessage && <p className='failure-message'>Notiz konnte nicht gespeichert werden</p>}
+                        </div>
                     </div>
                 </>
                 : <h1 className='title'>Keine Details verfügbar</h1>}
