@@ -1,12 +1,12 @@
 import React from "react";
-import {Note} from "./Note";
-import './NoteView.css';
+import {Note} from "../Note";
+import './ViewNote.css';
 
 interface Props {
     notes: Array<Note>
 }
 
-export const NoteView = ({notes}: Props) => {
+export const ViewNote = ({notes}: Props) => {
 
     return (
         <div className='note-details-container'>
