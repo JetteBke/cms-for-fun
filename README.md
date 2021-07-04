@@ -1,12 +1,13 @@
 # Contact Organizer for a friend
 
-I am building this small contact organizer for a friend, it is written in Typescript.
+This is the frontend for my small contact organizer application. You can find the backend [here](https://github.com/JetteBke/contact-organizer-backend).
 
 ## Prerequisites
 
-You need to have docker and npm installed.
+You need to have `docker` and `npm` installed.
+Further information on how to run the application, you can find in the backend repository.
 
-## Available Scripts for development
+## Available Scripts for development (note that it won't show you much as it is not connected to a backend like this)
 
 In the project directory, you can run:
 
