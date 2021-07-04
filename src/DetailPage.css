@@ -1,7 +1,5 @@
 .detail-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 1rem;
+    padding: 0 1rem;
 }
 
 .create-note-container {

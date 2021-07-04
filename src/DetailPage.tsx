@@ -44,7 +44,9 @@ export const DetailPage: React.FC = () => {
                 <>
                     <h1 className='title'>{contact?.title} {contact?.lastName}</h1>
                     <div className='detail-container'>
+                        <p className='separator'/>
                         <ViewContact contact={contact}/>
+                        <p className='separator'/>
                         <NoteArea
                             notes={notes}
                             onSave={submitNote}

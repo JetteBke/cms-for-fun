@@ -1,5 +1,7 @@
 .contact-details {
-    width: 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem
 }
 
 .info-row {
@@ -14,5 +16,5 @@ span {
     display: flex;
     width: 60%;
     flex-direction: column;
-    font-weight: bold;
+    font-weight: 600;
 }

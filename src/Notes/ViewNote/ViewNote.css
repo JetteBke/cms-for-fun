@@ -5,13 +5,11 @@
 }
 
 .note-content {
-    padding-top: 5px;
-    padding-bottom: 25px;
+    padding-top: 0.5rem;
+    padding-bottom: 2rem;
 }
 
 .note-details-container {
-    width: 50%;
-    padding-right: 25px;
     height: 500px;
     overflow: scroll;
 }
