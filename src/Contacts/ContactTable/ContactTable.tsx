@@ -26,7 +26,7 @@ export const ContactTable = ({contacts}: Props) => {
     return (
         <table className='contact-table'>
             <thead>
-            <tr>
+            <tr className='contact-table-header'>
                 <th>Anrede</th>
                 <th>Vorname</th>
                 <th>Nachname</th>
@@ -58,10 +58,12 @@ export const ContactTable = ({contacts}: Props) => {
                         <td>{contact.phoneTwo}</td>
                         <td>
                             <button
+                                className='redirect-button'
                                 onClick={() => routeToDetailPage(contact.id)}>
                                 Details
                             </button>
                             <button
+                                className='redirect-button'
                                 onClick={() => routeToEditPage(contact.id)}>
                                 Bearbeiten
                             </button>

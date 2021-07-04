@@ -25,3 +25,7 @@
 .title {
     padding: 15px 15px;
 }
+
+button:hover {
+    cursor: pointer;
+}
