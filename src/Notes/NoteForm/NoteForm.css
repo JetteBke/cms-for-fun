@@ -1,9 +1,10 @@
 .note-form {
-    display: block;
+    display: grid;
 }
 
 .note-form > input {
     height: 5rem;
+    width: 75%;
 }
 
 .note-form > input:focus {
@@ -18,4 +19,5 @@
     padding: 0.5rem 0.5rem;
     border-radius: 3px;
     border: none;
+    width: fit-content;
 }

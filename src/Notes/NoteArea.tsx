@@ -19,10 +19,9 @@ export const NoteArea = ({success, failure, notes, onSave}: Props) => {
                 <ViewNote notes={notes}/>
                 : <div className='no-notes-message'>Keine Notizen vorhanden</div>
             }
-            <div className='create-note-container'>
-                <NoteForm onSave={onSave}/>
-                {success && <p className='success-message'>Notiz wurde gespeichert</p>}
-                {failure && <p className='failure-message'>Notiz konnte nicht gespeichert werden</p>}
-            </div>
+            <p className='separator'/>
+            <NoteForm onSave={onSave}/>
+            {success && <p className='success-message'>Notiz wurde gespeichert</p>}
+            {failure && <p className='failure-message'>Notiz konnte nicht gespeichert werden</p>}
         </>)
 }

@@ -21,8 +21,8 @@ export const NoteForm = ({onSave}: Props) => {
     return (
         <div>
             <form onSubmit={onSubmit}>
+                <p>Notiz anlegen</p>
                 <div className='note-form'>
-                    <p>Notiz anlegen</p>
                     <input
                         name='text'
                         id='text'
