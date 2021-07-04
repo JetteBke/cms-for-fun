@@ -8,9 +8,15 @@ interface Props {
 
 export const ViewNote = ({notes}: Props) => {
 
+    const orderedNotes = notes.sort((a: Note, b: Note) => {
+        if (a.createdAt > b.createdAt) { return -1; }
+        if (a.createdAt < b.createdAt) {return 1; }
+        return 0;
+    })
+
     return (
         <div className='note-details-container'>
-            {notes.map(note =>
+            {orderedNotes.map(note =>
                 <div key={note.text}>
                     <div className='date-info'>
                         <span>Erstellt am {new Date(note.createdAt).toLocaleDateString()}</span>
