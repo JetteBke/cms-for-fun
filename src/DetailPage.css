@@ -1,11 +1,11 @@
 .detail-container {
     display: flex;
     justify-content: space-between;
-    padding: 15px 15px;
+    padding: 1rem 1rem;
 }
 
 .create-note-container {
     height: 50%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    padding: 10px 10px;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.2);
+    padding: 0.5rem 0.5rem;
 }

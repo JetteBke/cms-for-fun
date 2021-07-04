@@ -1,7 +1,6 @@
 .form-container {
     width: 75%;
-    margin-left: 20px;
-    padding: 10px 10px;
+    padding: 0.5rem 0.5rem;
 }
 
 .form-row {
@@ -10,7 +9,7 @@
 }
 
 .form-cell {
-    margin: 10px 10px;
+    margin: 0.5rem 0.5rem;
     font-size: 14px;
 }
 
@@ -22,8 +21,8 @@
     background-color: rgb(50,50,50);
     color: white;
     font-size: 14px;
-    margin: 10px 10px;
-    padding: 10px 10px;
+    margin: 0.5rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 3px;
     border: none;
 }

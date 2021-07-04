@@ -1,11 +1,11 @@
 .navbar {
     display: flex;
-    padding: 15px 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    padding: 1rem 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 }
 
 .navbarLink {
-    margin-right: 15px;
+    margin-right: 1rem;
     text-decoration: none;
     color: black;
 }
@@ -16,14 +16,15 @@
 
 .container {
     width: 75%;
-    margin: auto;
+    margin: 1rem auto;
     height: 75%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    box-shadow: 0 0 1rem rgba(0,0,0,0.3);
     padding-bottom: 20px;
 }
 
 .title {
-    padding: 15px 15px;
+    padding: 1rem 1rem;
+    margin:0;
 }
 
 button:hover {

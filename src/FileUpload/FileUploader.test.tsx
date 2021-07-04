@@ -51,5 +51,6 @@ describe('FileUploader', () => {
         userEvent.click(wrapper.getByRole('button'))
         //    then
         expect(wrapper.getByText('Keine Datei ausgewählt')).toBeInTheDocument()
+        expect(wrapper.queryByText('Datei wurde erfolgreich hochgeladen')).not.toBeInTheDocument()
     })
 })
