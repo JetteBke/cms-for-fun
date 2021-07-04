@@ -19,10 +19,12 @@ export const EditContact: React.FC = () => {
     }, [])
 
     const updateContactAndRedirect = async (contact: Contact) => {
-        await updateContact(contact)
-        history.push({
-            pathname: `/view/${contactId}`,
-        })
+        const successfulUpdate = await updateContact(contact)
+        if (successfulUpdate) {
+            history.push({
+                pathname: `/view/${contactId}`,
+            })
+        }
     }
 
     return (
