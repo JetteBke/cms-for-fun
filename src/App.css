@@ -35,3 +35,19 @@ button:hover {
 .separator {
     border-bottom: 1px solid darkgray;
 }
+
+.success-message {
+    border-radius: 3px;
+    border: 1px solid seagreen;
+    color: seagreen;
+    padding: 5px 5px;
+    width: fit-content;
+}
+
+.failure-message {
+    border-radius: 3px;
+    border: 1px solid darkred;
+    color: darkred;
+    padding: 5px 5px;
+    width: fit-content;
+}

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {ContactTable} from "./Contacts/ContactTable/ContactTable";
-import {getContacts} from "./Contacts/ContactService";
+import {deleteContact, getContacts} from "./Contacts/ContactService";
 import {Contact} from "./Contacts/Contact";
 
 export const Overview: React.FC = () => {
@@ -12,10 +12,15 @@ export const Overview: React.FC = () => {
 
     },[])
 
+    const removeContact = async (contactId: number) => {
+        await deleteContact(contactId)
+        await getContacts().then(resp => setContacts(resp))
+    }
+
     return (
         <div className='container'>
             <h1 className='title'>Alle Kontakte</h1>
-            {contacts && <ContactTable contacts={contacts}/>}
+            {contacts && <ContactTable contacts={contacts} onDelete={removeContact}/>}
         </div>
     )
 }

@@ -24,7 +24,7 @@ describe('ContactTable', () => {
     }]
 
     it('should show contact data', () => {
-        const wrapper = render(<ContactTable contacts={contacts}/>)
+        const wrapper = render(<ContactTable contacts={contacts} onDelete={jest.fn()}/>)
 
         expect(wrapper.getByText('some street 12')).toBeInTheDocument()
     })
@@ -32,7 +32,7 @@ describe('ContactTable', () => {
     it('should have a button which sends user to detail view of a contact', async () => {
         const mockPush = jest.fn()
         mocked(useHistory).mockReturnValue({ push: mockPush })
-        const wrapper = render(<ContactTable contacts={contacts}/>)
+        const wrapper = render(<ContactTable contacts={contacts} onDelete={jest.fn()}/>)
 
         const button = await wrapper.findByText("Details")
         userEvent.click(button)
@@ -43,7 +43,7 @@ describe('ContactTable', () => {
     it('should have a button which sends user to edit view of a contact', async () => {
         const mockPush = jest.fn()
         mocked(useHistory).mockReturnValue({ push: mockPush })
-        const wrapper = render(<ContactTable contacts={contacts}/>)
+        const wrapper = render(<ContactTable contacts={contacts} onDelete={jest.fn()}/>)
 
         const button = await wrapper.findByText("Bearbeiten")
         userEvent.click(button)

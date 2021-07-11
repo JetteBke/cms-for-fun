@@ -1,16 +1,16 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {Contact} from "../Contact";
 import './ContactTable.css'
 
 interface Props {
     contacts: Array<Contact>,
+    onDelete: Function
 }
 
-export const ContactTable = ({contacts}: Props) => {
+export const ContactTable = ({contacts, onDelete}: Props) => {
 
     const history = useHistory()
-
     const routeToDetailPage = (id?: number) => {
         history.push({
             pathname: `/view/${id}`,
@@ -21,6 +21,13 @@ export const ContactTable = ({contacts}: Props) => {
         history.push({
             pathname: `/edit/${id}`,
         })
+    }
+
+    const removeContact = async (id: number) => {
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm("Kontakt wirklich löschen?")) {
+            onDelete(id)
+        }
     }
 
     return (
@@ -66,6 +73,11 @@ export const ContactTable = ({contacts}: Props) => {
                                 className='redirect-button'
                                 onClick={() => routeToEditPage(contact.id)}>
                                 Bearbeiten
+                            </button>
+                            <button
+                                className='redirect-button'
+                                onClick={() => removeContact(contact.id!)}>
+                                Löschen
                             </button>
                         </td>
                     </tr>

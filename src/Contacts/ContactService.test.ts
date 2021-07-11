@@ -1,4 +1,4 @@
-import {saveContact, getContacts, updateContact, getContact} from "./ContactService";
+import {saveContact, getContacts, updateContact, getContact, deleteContact} from "./ContactService";
 import axios from "axios";
 import {ContactFixture} from "./Contact";
 
@@ -67,5 +67,14 @@ describe('contact service test', () => {
         const result = await getContact(1)
 //     then
         expect(result).toBe(ContactFixture[0])
+    })
+
+    it("should delete a contact by id", async () => {
+//     given
+        axios.delete.mockImplementation(() => Promise.resolve({status: 200}))
+//     when
+        const result = await deleteContact(1)
+//     then
+        expect(result).toBe(true)
     })
 })

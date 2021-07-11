@@ -34,3 +34,12 @@ export const getContact = async (contactId: number): Promise<Contact> => {
     const response = await axios.get(`/cms/api/contacts/${contactId}`)
     return response.data
 }
+
+export const deleteContact = async (contactId: number): Promise<boolean> => {
+    try {
+        const response = await axios.delete(`/cms/api/contacts/${contactId}/delete`)
+        return (response.status === 200)
+    } catch (err) {
+        return false
+    }
+}
