@@ -36,19 +36,19 @@ describe('DetailPage', () => {
         mocked(useParams).mockReturnValue({contactId: contactId.toString()})
     })
 
-    it('should pass contact id as prop to detail contact view',  async() => {
+    it('should pass contact id as prop to detail contact view', async () => {
         const wrapper = render(<DetailPage/>)
         await act(() => Promise.resolve())
 
         expect(wrapper.getByText('some street 12')).toBeInTheDocument()
     })
 
-    it('should save a note and send it to the service on submit', async() => {
+    it('should save a note and send it to the service on submit', async () => {
         const wrapper = render(<DetailPage/>)
         await act(() => Promise.resolve())
 
         userEvent.type(wrapper.getByRole('textbox'), 'This is a note.')
-        userEvent.click(wrapper.getByRole('button'))
+        userEvent.click(wrapper.getByText("Speichern"))
         await act(() => Promise.resolve())
 
         expect(saveNote).toHaveBeenCalledWith({
@@ -66,19 +66,19 @@ describe('DetailPage', () => {
         await act(() => Promise.resolve())
 
         userEvent.type(wrapper.getByRole('textbox'), 'This is a note.')
-        userEvent.click(wrapper.getByRole('button'))
+        userEvent.click(wrapper.getByText("Speichern"))
         await act(() => Promise.resolve())
 
         expect(wrapper.getByText('Notiz wurde gespeichert')).toBeInTheDocument()
     })
 
-    it('should show a failure message when note is not saved successfully', async() => {
+    it('should show a failure message when note is not saved successfully', async () => {
         mocked(saveNote).mockReturnValue(Promise.resolve(false))
         const wrapper = render(<DetailPage/>)
         await act(() => Promise.resolve())
 
         userEvent.type(wrapper.getByRole('textbox'), 'This is a note.')
-        userEvent.click(wrapper.getByRole('button'))
+        userEvent.click(wrapper.getByText("Speichern"))
         await act(() => Promise.resolve())
 
         expect(wrapper.getByText('Notiz konnte nicht gespeichert werden')).toBeInTheDocument()

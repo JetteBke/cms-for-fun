@@ -1,10 +1,8 @@
 import {render} from "@testing-library/react";
 import {ViewNote} from "./ViewNote";
 import {NoteFixture} from "../Note";
-import {mocked} from "ts-jest/utils";
 import {act} from "react-dom/test-utils";
 import userEvent from "@testing-library/user-event";
-import {deleteNote} from "../NoteService";
 
 describe('Note View', () => {
     it('should show details of a note including dates in correct format', () => {
@@ -28,7 +26,7 @@ describe('Note View', () => {
 
         const wrapper = render(<ViewNote notes={NoteFixture} onDelete={onDelete}/>)
 
-        const button = await wrapper.getAllByRole("img")[0]
+        const button = await wrapper.getAllByRole("button")[0]
         userEvent.click(button)
 
         await act(() => Promise.resolve())

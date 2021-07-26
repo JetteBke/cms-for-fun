@@ -14,7 +14,12 @@
     overflow: scroll;
 }
 
-.delete-icon:hover {
-    cursor: pointer;
+.trash-icon-button {
+    background-color: transparent;
+    border:none
 }
 
+.date-and-actions-area {
+    display: flex;
+    justify-content: space-between;
+}

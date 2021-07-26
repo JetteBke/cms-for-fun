@@ -12,6 +12,7 @@ export const NoteForm = ({onSave}: Props) => {
         event.preventDefault();
 
         await onSave(text)
+        setText(null)
     }
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
