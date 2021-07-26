@@ -1,10 +1,14 @@
 import {render} from "@testing-library/react";
 import {ViewNote} from "./ViewNote";
 import {NoteFixture} from "../Note";
+import {mocked} from "ts-jest/utils";
+import {act} from "react-dom/test-utils";
+import userEvent from "@testing-library/user-event";
+import {deleteNote} from "../NoteService";
 
 describe('Note View', () => {
     it('should show details of a note including dates in correct format', () => {
-        const wrapper = render(<ViewNote notes={NoteFixture}/>)
+        const wrapper = render(<ViewNote notes={NoteFixture} onDelete={jest.fn()}/>)
 
         expect(wrapper.getByText(NoteFixture[0].text)).toBeInTheDocument()
         expect(wrapper.getByText('Erstellt am 7/3/2021')).toBeInTheDocument()
@@ -16,4 +20,19 @@ describe('Note View', () => {
     //
     //     expect(wrapper.getAll(NoteFixture[0].text)).toBeInTheDocument()
     // })
+
+    it('should delete a note when user clicks delete icon', async () => {
+        //    given
+        const originalConfirm = window.confirm
+        window.confirm = jest.fn(() => true)
+        mocked(deleteNote).mockReturnValue(Promise.resolve(true))
+        const wrapper = render(<ViewNote notes={NoteFixture}  onDelete={jest.fn()}/>)
+
+        const button = await wrapper.findByText("Löschen")
+        userEvent.click(button)
+
+        await act(() => Promise.resolve())
+        expect(deleteNote).toHaveBeenCalledTimes(1)
+        window.confirm = originalConfirm
+    })
 })

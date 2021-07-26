@@ -51,3 +51,15 @@ button:hover {
     padding: 5px 5px;
     width: fit-content;
 }
+
+.icon-source-footer {
+    color: rgba(50,50,50,0.2);
+    position: relative;
+    bottom: 0.5rem;
+    left: 0.5rem;
+}
+
+.icon-source-footer > a {
+    text-decoration: none;
+    color: rgba(50,50,50,0.2);
+}

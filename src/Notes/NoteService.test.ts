@@ -1,5 +1,5 @@
 import axios from "axios";
-import {getNotes, saveNote} from "./NoteService";
+import {deleteNote, getNotes, saveNote} from "./NoteService";
 import {NoteFixture} from "./Note";
 
 jest.mock('axios')
@@ -28,5 +28,14 @@ describe('note service test', () => {
         const result = await getNotes('1')
 //     then
         expect(result).toBe(NoteFixture)
+    })
+
+    it("should delete a note by id", async () => {
+//     given
+        axios.delete.mockImplementation(() => Promise.resolve({status: 200}))
+//     when
+        const result = await deleteNote(1)
+//     then
+        expect(result).toBe(true)
     })
 })

@@ -31,6 +31,7 @@ export default function BasicExample() {
                     <Route exact path="/view/:contactId" component={DetailPage}/>
                     <Route path="/fileUpload" component={FileUploader}/>
                 </Switch>
+                <div className='icon-source-footer'>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
             </div>
         </Router>
     );

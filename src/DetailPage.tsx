@@ -4,7 +4,7 @@ import {Contact} from "./Contacts/Contact";
 import {useParams} from "react-router-dom";
 import {ViewContact} from "./Contacts/ViewContact/ViewContact";
 import {Note} from "./Notes/Note";
-import {getNotes, saveNote} from "./Notes/NoteService";
+import {deleteNote, getNotes, saveNote} from "./Notes/NoteService";
 
 import './DetailPage.css'
 import {NoteArea} from "./Notes/NoteArea";
@@ -38,6 +38,13 @@ export const DetailPage: React.FC = () => {
         setFailureMessage(!success)
     }
 
+    const deleteNoteAndRefresh = async (noteId: number) => {
+        setSuccessMessage(false)
+        setFailureMessage(false)
+        await deleteNote(noteId)
+        await getNotes(contactId).then(resp => setNotes(resp))
+    }
+
     return (
         <div className='container'>
             {contact ?
@@ -51,7 +58,9 @@ export const DetailPage: React.FC = () => {
                             notes={notes}
                             onSave={submitNote}
                             failure={failureMessage}
-                            success={successMessage}/>
+                            success={successMessage}
+                            onDelete={deleteNoteAndRefresh}
+                        />
                     </div>
                 </>
                 : <h1 className='title'>Keine Details verfügbar</h1>}

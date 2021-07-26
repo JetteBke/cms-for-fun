@@ -4,9 +4,10 @@ import './ViewNote.css';
 
 interface Props {
     notes: Array<Note>
+    onDelete: Function
 }
 
-export const ViewNote = ({notes}: Props) => {
+export const ViewNote = ({notes, onDelete}: Props) => {
 
     const orderedNotes = notes.sort((a: Note, b: Note) => {
         if (a.createdAt > b.createdAt) {
@@ -31,6 +32,11 @@ export const ViewNote = ({notes}: Props) => {
                         </div>
                         <div className='note-content'>
                             <span>{note.text}</span>
+                                <img src={require('../../images/bin.png')}
+                                     className='delete-icon'
+                                     alt="trash-icon"
+                                     onClick={() => onDelete(note.id!!)}
+                                />
                         </div>
                     </div>
                 )}

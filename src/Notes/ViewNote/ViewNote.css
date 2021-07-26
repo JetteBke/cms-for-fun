@@ -14,3 +14,7 @@
     overflow: scroll;
 }
 
+.delete-icon:hover {
+    cursor: pointer;
+}
+

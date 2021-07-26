@@ -8,15 +8,16 @@ interface Props {
     notes: Array<Note>,
     onSave: Function,
     success: Boolean,
-    failure: Boolean
+    failure: Boolean,
+    onDelete: Function
 }
 
-export const NoteArea = ({success, failure, notes, onSave}: Props) => {
+export const NoteArea = ({success, failure, notes, onSave, onDelete}: Props) => {
 
     return (
         <>
             {notes && notes.length ?
-                <ViewNote notes={notes}/>
+                <ViewNote notes={notes} onDelete={onDelete}/>
                 : <div className='no-notes-message'>Keine Notizen vorhanden</div>
             }
             <p className='separator'/>

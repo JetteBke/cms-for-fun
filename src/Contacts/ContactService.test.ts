@@ -1,4 +1,4 @@
-import {saveContact, getContacts, updateContact, getContact, deleteContact} from "./ContactService";
+import {deleteContact, getContact, getContacts, saveContact, updateContact} from "./ContactService";
 import axios from "axios";
 import {ContactFixture} from "./Contact";
 
