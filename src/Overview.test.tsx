@@ -32,20 +32,22 @@ describe('Contacts', () => {
         expect(wrapper.getByText('some street 12')).toBeInTheDocument()
     })
 
-    // it('should delete a contact and get full list of contacts again when user clicks delete button', async () => {
-    //     //    given
-    //     // eslint-disable-next-line no-restricted-globals
-    //     confirm.mockImplementation(() => true)
-    //     mocked(getContacts).mockReturnValue(Promise.resolve(contacts))
-    //     mocked(deleteContact).mockReturnValue(Promise.resolve(true))
-    //     //    when
-    //     const wrapper = render(<Overview/>)
-    //     await act(() => Promise.resolve())
-    //     //    then
-    //     const button = await wrapper.findByText("Löschen")
-    //     userEvent.click(button)
-    //
-    //     expect(deleteContact).toHaveBeenCalledTimes(1)
-    //     expect(getContacts).toHaveBeenCalledTimes(2)
-    // })
+    it('should delete a contact and get full list of contacts again when user clicks delete button', async () => {
+        //    given
+        const originalConfirm = window.confirm
+        window.confirm = jest.fn(() => true)
+        mocked(getContacts).mockReturnValue(Promise.resolve(contacts))
+        mocked(deleteContact).mockReturnValue(Promise.resolve(true))
+        //    when
+        const wrapper = render(<Overview/>)
+        await act(() => Promise.resolve())
+        //    then
+        const button = await wrapper.findByText("Löschen")
+        userEvent.click(button)
+
+        await act(() => Promise.resolve())
+        expect(deleteContact).toHaveBeenCalledTimes(1)
+        expect(getContacts).toHaveBeenCalledTimes(2)
+        window.confirm = originalConfirm
+    })
 })
