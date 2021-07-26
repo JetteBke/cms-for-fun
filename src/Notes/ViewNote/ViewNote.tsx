@@ -19,6 +19,13 @@ export const ViewNote = ({notes, onDelete}: Props) => {
         return 0;
     })
 
+    const confirmNoteDeletion = (id: number) => {
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm("Notiz wirklich löschen?")) {
+            onDelete(id)
+        }
+    }
+
     return (
         <>
             <div className='note-details-container'>
@@ -35,7 +42,7 @@ export const ViewNote = ({notes, onDelete}: Props) => {
                                 <img src={require('../../images/bin.png')}
                                      className='delete-icon'
                                      alt="trash-icon"
-                                     onClick={() => onDelete(note.id!!)}
+                                     onClick={() => confirmNoteDeletion(note.id!!)}
                                 />
                         </div>
                     </div>

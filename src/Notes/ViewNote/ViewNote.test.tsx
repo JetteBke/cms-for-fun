@@ -22,17 +22,17 @@ describe('Note View', () => {
     // })
 
     it('should delete a note when user clicks delete icon', async () => {
-        //    given
+        const onDelete = jest.fn()
         const originalConfirm = window.confirm
         window.confirm = jest.fn(() => true)
-        mocked(deleteNote).mockReturnValue(Promise.resolve(true))
-        const wrapper = render(<ViewNote notes={NoteFixture}  onDelete={jest.fn()}/>)
 
-        const button = await wrapper.findByText("Löschen")
+        const wrapper = render(<ViewNote notes={NoteFixture} onDelete={onDelete}/>)
+
+        const button = await wrapper.getAllByRole("img")[0]
         userEvent.click(button)
 
         await act(() => Promise.resolve())
-        expect(deleteNote).toHaveBeenCalledTimes(1)
+        expect(onDelete).toHaveBeenCalledTimes(1)
         window.confirm = originalConfirm
     })
 })
