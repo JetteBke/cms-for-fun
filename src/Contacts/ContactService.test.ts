@@ -39,7 +39,7 @@ describe('contact service test', () => {
 
     it("should successfully update a contact", async () => {
 //     given
-        axios.put.mockImplementation(() => Promise.resolve({status: 200}))
+        axios.put.mockImplementation(() => Promise.resolve({status: 204}))
         const contact = {
             address: "some street 12",
             city: "cologne",

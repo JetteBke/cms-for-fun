@@ -19,7 +19,7 @@ export const updateContact = async (contact: Contact): Promise<boolean> => {
             `/cms/api/contacts/edit`,
             contact
         )
-        return (response.status === 200)
+        return (response.status === 204)
     } catch (err) {
         return false
     }
