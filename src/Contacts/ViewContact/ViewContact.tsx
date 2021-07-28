@@ -34,7 +34,7 @@ export const ViewContact = ({contact}: Props) => {
                         <span>{contact?.address}</span>
                     </div>
                     <div className='info-row'>
-                        <span className='title-column'>Postleihzahl</span>
+                        <span className='title-column'>PLZ</span>
                         <span>{contact?.postalCode}</span>
                     </div>
                     <div className='info-row'>

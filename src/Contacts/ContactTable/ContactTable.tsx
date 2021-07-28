@@ -39,7 +39,7 @@ export const ContactTable = ({contacts, onDelete}: Props) => {
                 <th>Nachname</th>
                 <th>Firma</th>
                 <th>Straße und Hausnummer</th>
-                <th>Postleihzahl</th>
+                <th>PLZ</th>
                 <th>Stadt</th>
                 <th>Email 1</th>
                 <th>Email 2</th>

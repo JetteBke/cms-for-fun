@@ -91,7 +91,7 @@ export const ContactForm = ({contact, onSave}: Props) => {
                 </div>
                 <div className='form-row'>
                     <div className='form-cell'>
-                        <p className='form-cell-title'>Postleihzahl</p>
+                        <p className='form-cell-title'>PLZ</p>
                         <input
                             name='postalCode'
                             id='postalCode'
