@@ -25,6 +25,7 @@ export const EditContact: React.FC = () => {
                 pathname: `/view/${contactId}`,
             })
         }
+        return successfulUpdate
     }
 
     return (
