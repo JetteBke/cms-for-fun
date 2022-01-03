@@ -11,6 +11,7 @@ export interface Contact {
     phoneTwo?: number
     emailOne?: string
     emailTwo?: string
+    oldNote?: string
 }
 
 export const initialEmptyContact: Contact = {

@@ -60,6 +60,12 @@ export const ViewContact = ({contact}: Props) => {
                         <span>{contact?.phoneTwo}</span>
                     </div>
                 </div>
+                <div>
+                    <div className='info-row'>
+                        <span className='title-column'>Bemerkung</span>
+                        <span>{contact?.oldNote}</span>
+                    </div>
+                </div>
             </div>
         </>
     )
