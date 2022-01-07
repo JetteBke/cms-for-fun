@@ -5,10 +5,10 @@ export interface Contact {
     lastName: string
     company?: string
     address?: string
-    postalCode?: number
+    postalCode?: string
     city?: string
-    phoneOne?: number
-    phoneTwo?: number
+    phoneOne?: string
+    phoneTwo?: string
     emailOne?: string
     emailTwo?: string
     oldNote?: string
@@ -25,9 +25,9 @@ export const ContactFixture: Array<Contact> = [{
     emailTwo: "tyuio@78ijnm.com",
     firstName: "Detlef",
     lastName: "Doodle",
-    phoneOne: 3456789,
-    phoneTwo: 3456789,
-    postalCode: 8765,
+    phoneOne: "3456789",
+    phoneTwo: "3456789",
+    postalCode: "8765",
     title: "Don",
     company: "Don GmbH",
     id: 1
@@ -39,9 +39,9 @@ export const ContactFixture: Array<Contact> = [{
         emailTwo: "tyuio@78ijnm.com",
         firstName: "Detlef",
         lastName: "Doodle",
-        phoneOne: 3456789,
-        phoneTwo: 3456789,
-        postalCode: 8765,
+        phoneOne: "3456789",
+        phoneTwo: "3456789",
+        postalCode: "8765",
         title: "Don",
         company: "Don GmbH",
         id: 2
@@ -53,9 +53,9 @@ export const ContactFixture: Array<Contact> = [{
         emailTwo: "tyuio@78ijnm.com",
         firstName: "Detlef",
         lastName: "Doodle",
-        phoneOne: 3456789,
-        phoneTwo: 3456789,
-        postalCode: 8765,
+        phoneOne: "3456789",
+        phoneTwo: "3456789",
+        postalCode: "8765",
         title: "Don",
         company: "Don GmbH",
         id: 3
@@ -67,9 +67,9 @@ export const ContactFixture: Array<Contact> = [{
         emailTwo: "tyuio@78ijnm.com",
         firstName: "Detlef",
         lastName: "Doodle",
-        phoneOne: 3456789,
-        phoneTwo: 3456789,
-        postalCode: 8765,
+        phoneOne: "3456789",
+        phoneTwo: "3456789",
+        postalCode: "8765",
         title: "Don",
         company: "Don GmbH",
         id: 4

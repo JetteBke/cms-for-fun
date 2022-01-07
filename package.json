@@ -45,5 +45,5 @@
     "@types/react-router-dom": "^5.1.7",
     "ts-jest": "^26.5.5"
   },
-  "proxy": "http://corg-backend:8080"
+  "proxy": "http://localhost:8080"
 }
