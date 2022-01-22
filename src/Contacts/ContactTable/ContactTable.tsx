@@ -2,6 +2,9 @@ import React from "react";
 import {useHistory} from "react-router-dom";
 import {Contact} from "../Contact";
 import './ContactTable.css'
+import {TrashIconWhite} from "../../Components/TrashIconGray";
+import {ViewIcon} from "../../Components/ViewIcon";
+import {EditIcon} from "../../Components/EditIcon";
 
 interface Props {
     contacts: Array<Contact>,
@@ -51,7 +54,7 @@ export const ContactTable = ({contacts, onDelete}: Props) => {
             <tbody className='table-body'>
             {contacts.map((contact) =>
                 (
-                    <tr key={`${contact.id}`}>
+                    <tr className='table-body-row' key={`${contact.id}`}>
                         <td>{contact.title}</td>
                         <td>{contact.firstName}</td>
                         <td>{contact.lastName}</td>
@@ -65,19 +68,22 @@ export const ContactTable = ({contacts, onDelete}: Props) => {
                         <td>{contact.phoneTwo}</td>
                         <td>
                             <button
+                                title="Details"
                                 className='redirect-button'
                                 onClick={() => routeToDetailPage(contact.id)}>
-                                Details
+                                <ViewIcon/>
                             </button>
                             <button
+                                title="Bearbeiten"
                                 className='redirect-button'
                                 onClick={() => routeToEditPage(contact.id)}>
-                                Bearbeiten
+                                <EditIcon/>
                             </button>
                             <button
+                                title="Löschen"
                                 className='redirect-button'
                                 onClick={() => removeContact(contact.id!)}>
-                                Löschen
+                                <TrashIconWhite/>
                             </button>
                         </td>
                     </tr>

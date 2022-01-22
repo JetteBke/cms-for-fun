@@ -1,7 +1,7 @@
 import React from "react";
 import {Note} from "../Note";
 import './ViewNote.css';
-import {TrashIcon} from "../../Components/TrashIcon";
+import {TrashIconGray} from "../../Components/TrashIconGray";
 
 interface Props {
     notes: Array<Note>
@@ -39,7 +39,7 @@ export const ViewNote = ({notes, onDelete}: Props) => {
                             </div>
                             <button onClick={() => confirmNoteDeletion(note.id!!)}
                                     className='trash-icon-button'>
-                                <TrashIcon/>
+                                <TrashIconGray/>
                             </button>
                         </div>
                         <div className='note-content'>
