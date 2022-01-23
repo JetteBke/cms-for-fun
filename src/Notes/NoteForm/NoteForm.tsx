@@ -8,11 +8,9 @@ interface Props {
 export const NoteForm = ({onSave}: Props) => {
 
     const [text, setText] = React.useState<string | null>(null)
-    const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
 
+    const onSubmit = async () => {
         await onSave(text)
-        setText(null)
     }
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
