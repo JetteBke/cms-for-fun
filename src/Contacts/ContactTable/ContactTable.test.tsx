@@ -34,7 +34,7 @@ describe('ContactTable', () => {
         mocked(useHistory).mockReturnValue({ push: mockPush })
         const wrapper = render(<ContactTable contacts={contacts} onDelete={jest.fn()}/>)
 
-        const button = await wrapper.findByText("Details")
+        const button = await wrapper.findByTitle("Details")
         userEvent.click(button)
 
         expect(mockPush).toHaveBeenCalledTimes(1)
@@ -45,7 +45,7 @@ describe('ContactTable', () => {
         mocked(useHistory).mockReturnValue({ push: mockPush })
         const wrapper = render(<ContactTable contacts={contacts} onDelete={jest.fn()}/>)
 
-        const button = await wrapper.findByText("Bearbeiten")
+        const button = await wrapper.findByTitle("Bearbeiten")
         userEvent.click(button)
 
         expect(mockPush).toHaveBeenCalledTimes(1)

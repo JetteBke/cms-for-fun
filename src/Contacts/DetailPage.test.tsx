@@ -8,8 +8,8 @@ import userEvent from "@testing-library/user-event";
 import {getNotes, saveNote} from "../Notes/NoteService";
 import {NoteFixture} from "../Notes/Note";
 
-jest.mock('./Contacts/ContactService')
-jest.mock('./Notes/NoteService')
+jest.mock('./ContactService')
+jest.mock('../Notes/NoteService')
 
 describe('DetailPage', () => {
     const mockedDateNow = 1487076708000 //14.02.2017

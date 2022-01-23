@@ -1,16 +1,12 @@
-import {getContact} from "../ContactService";
 import {render} from "@testing-library/react";
-import {mocked} from 'ts-jest/utils';
 import {ViewContact} from "./ViewContact";
-import {useParams} from "react-router-dom";
-import {act} from "react-dom/test-utils";
 
 jest.mock('../ContactService')
 
 describe('ViewContact', () => {
-    it('should show details of a contact',  async() => {
-    //    given
-        const contact ={
+    it('should show details of a contact', async () => {
+        //    given
+        const contact = {
             address: "some street 12",
             city: "cologne",
             emailOne: "ghjk@ghjk.com",
@@ -24,9 +20,9 @@ describe('ViewContact', () => {
             company: "Don GmbH",
             id: 2
         }
-    //    when
+        //    when
         const wrapper = render(<ViewContact contact={contact}/>)
-    //    then
+        //    then
         expect(wrapper.getByText('some street 12')).toBeInTheDocument()
         expect(wrapper.getByText('cologne')).toBeInTheDocument()
         expect(wrapper.getByText("ghjk@ghjk.com")).toBeInTheDocument()
