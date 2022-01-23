@@ -9,18 +9,31 @@ jest.mock('./Contacts/ContactService')
 
 describe('Contacts', () => {
     const contacts = [{
-        address: "some street 12",
-        city: "cologne",
-        emailOne: "ghjk@ghjk.com",
-        emailTwo: "tyuio@78ijnm.com",
-        firstName: "Detlef",
-        lastName: "Doodle",
-        phoneOne: 3456789,
-        phoneTwo: 3456789,
-        postalCode: 8765,
-        title: "Don",
-        id: 2
-    }]
+            address: "some street 12",
+            city: "cologne",
+            emailOne: "ghjk@ghjk.com",
+            emailTwo: "tyuio@78ijnm.com",
+            firstName: "Detlef",
+            lastName: "Doodle",
+            phoneOne: "3456789",
+            phoneTwo: "3456789",
+            postalCode: "8765",
+            title: "Don",
+            id: 2
+        },
+        {
+            address: "some street 12",
+            city: "cologne",
+            emailOne: "ghjk@ghjk.com",
+            emailTwo: "tyuio@78ijnm.com",
+            firstName: "Detlef",
+            lastName: "Foodle",
+            phoneOne: "3456789",
+            phoneTwo: "3456789",
+            postalCode: "8765",
+            title: "Don",
+            id: 3
+        }]
 
     it('should pass contacts as prop to contacts table', async () => {
         //    given
@@ -42,7 +55,7 @@ describe('Contacts', () => {
         const wrapper = render(<Overview/>)
         await act(() => Promise.resolve())
         //    then
-        const button = await wrapper.findByText("Löschen")
+        const button = await wrapper.findByTitle("Löschen")
         userEvent.click(button)
 
         await act(() => Promise.resolve())
