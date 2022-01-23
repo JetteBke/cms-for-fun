@@ -21,14 +21,15 @@ describe('DetailPage', () => {
         emailTwo: "tyuio@78ijnm.com",
         firstName: "Detlef",
         lastName: "Doodle",
-        phoneOne: 3456789,
-        phoneTwo: 3456789,
-        postalCode: 8765,
+        phoneOne: "3456789",
+        phoneTwo: "3456789",
+        postalCode: "8765",
         title: "Don",
         id: contactId
     }
 
     beforeEach(() => {
+        HTMLFormElement.prototype.submit = jest.fn()
         Date.now = jest.fn(() => mockedDateNow)
         mocked(getContact).mockReturnValue(Promise.resolve(contact))
         mocked(getNotes).mockReturnValue(Promise.resolve(NoteFixture))

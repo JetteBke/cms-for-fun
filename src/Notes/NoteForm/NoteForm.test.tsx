@@ -11,7 +11,7 @@ describe('Note Form', () => {
     })
 
     it('should call function from props on form submit', () => {
-        const mockedFn = jest.fn(e => e.preventDefault());
+        const mockedFn = jest.fn(e => e.preventDefault())
 
         const wrapper = render(<NoteForm onSave={mockedFn}/>)
 

@@ -6,6 +6,7 @@ import {EditContact} from "./Contacts/EditContact/EditContact";
 import "./App.css"
 import {FileUploader} from "./FileUpload/FileUploader";
 import {DetailPage} from "./Contacts/DetailPage";
+import {FileDownload} from "./FileDownload/FileDownload";
 
 export default function BasicExample() {
     return (
@@ -15,6 +16,7 @@ export default function BasicExample() {
                     <Link className='navbarLink' to="/list">Alle Kontakte</Link>
                     <Link className='navbarLink' to="/add">Kontakt hinzufügen</Link>
                     <Link className='navbarLink' to="/fileUpload">Datei hochladen</Link>
+                    <Link className='navbarLink' to="/fileDownload">Datei herunterladen</Link>
                 </div>
 
                 {/*
@@ -30,6 +32,7 @@ export default function BasicExample() {
                     <Route path="/edit/:contactId" component={EditContact}/>
                     <Route exact path="/view/:contactId" component={DetailPage}/>
                     <Route path="/fileUpload" component={FileUploader}/>
+                    <Route path="/fileDownload" component={FileDownload}/>
                 </Switch>
             </div>
         </Router>
