@@ -2,11 +2,11 @@ import {render} from "@testing-library/react";
 import {act} from "react-dom/test-utils";
 import {DetailPage} from "./DetailPage";
 import {mocked} from "ts-jest/utils";
-import {getContact} from "./Contacts/ContactService";
+import {getContact} from "./ContactService";
 import {useParams} from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import {getNotes, saveNote} from "./Notes/NoteService";
-import {NoteFixture} from "./Notes/Note";
+import {getNotes, saveNote} from "../Notes/NoteService";
+import {NoteFixture} from "../Notes/Note";
 
 jest.mock('./Contacts/ContactService')
 jest.mock('./Notes/NoteService')

@@ -1,13 +1,13 @@
 import React, {useState} from "react";
-import {getContact} from "./Contacts/ContactService";
-import {Contact} from "./Contacts/Contact";
+import {getContact} from "./ContactService";
+import {Contact} from "./Contact";
 import {useParams} from "react-router-dom";
-import {ViewContact} from "./Contacts/ViewContact/ViewContact";
-import {Note} from "./Notes/Note";
-import {deleteNote, getNotes, saveNote} from "./Notes/NoteService";
+import {ViewContact} from "./ViewContact/ViewContact";
+import {Note} from "../Notes/Note";
+import {deleteNote, getNotes, saveNote} from "../Notes/NoteService";
 
 import './DetailPage.css'
-import {NoteArea} from "./Notes/NoteArea";
+import {NoteArea} from "../Notes/NoteArea";
 
 interface Params {
     contactId: string

@@ -5,7 +5,7 @@ import {AddContact} from "./Contacts/AddContact/AddContact";
 import {EditContact} from "./Contacts/EditContact/EditContact";
 import "./App.css"
 import {FileUploader} from "./FileUpload/FileUploader";
-import {DetailPage} from "./DetailPage";
+import {DetailPage} from "./Contacts/DetailPage";
 
 export default function BasicExample() {
     return (
