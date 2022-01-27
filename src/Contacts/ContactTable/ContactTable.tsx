@@ -37,17 +37,17 @@ export const ContactTable = ({contacts, onDelete}: Props) => {
         <table className='contact-table'>
             <thead>
             <tr className='contact-table-header'>
-                <th>Anrede</th>
-                <th>Vorname</th>
-                <th>Nachname</th>
-                <th>Firma</th>
-                <th>Straße und Hausnummer</th>
-                <th>PLZ</th>
-                <th>Stadt</th>
-                <th>Email 1</th>
-                <th>Email 2</th>
-                <th>Telefon 1</th>
-                <th>Telefon 2</th>
+                <th className='table-header-cell'>Anrede</th>
+                <th className='table-header-cell'>Vorname</th>
+                <th className='table-header-cell'>Nachname</th>
+                <th className='table-header-cell'>Firma</th>
+                <th className='table-header-cell'>Straße und Hausnummer</th>
+                <th className='table-header-cell'>PLZ</th>
+                <th className='table-header-cell'>Stadt</th>
+                <th className='table-header-cell'>Email 1</th>
+                <th className='table-header-cell'>Email 2</th>
+                <th className='table-header-cell'>Telefon 1</th>
+                <th className='table-header-cell'>Telefon 2</th>
                 <th/>
             </tr>
             </thead>
@@ -55,18 +55,18 @@ export const ContactTable = ({contacts, onDelete}: Props) => {
             {contacts.map((contact) =>
                 (
                     <tr className='table-body-row' key={`${contact.id}`}>
-                        <td>{contact.title}</td>
-                        <td>{contact.firstName}</td>
-                        <td>{contact.lastName}</td>
-                        <td>{contact.company}</td>
-                        <td>{contact.address}</td>
-                        <td>{contact.postalCode}</td>
-                        <td>{contact.city}</td>
-                        <td>{contact.emailOne}</td>
-                        <td>{contact.emailTwo}</td>
-                        <td>{contact.phoneOne}</td>
-                        <td>{contact.phoneTwo}</td>
-                        <td>
+                        <td className='table-body-cell'>{contact.title}</td>
+                        <td className='table-body-cell'>{contact.firstName}</td>
+                        <td className='table-body-cell'>{contact.lastName}</td>
+                        <td className='table-body-cell'>{contact.company}</td>
+                        <td className='table-body-cell'>{contact.address}</td>
+                        <td className='table-body-cell'>{contact.postalCode}</td>
+                        <td className='table-body-cell'>{contact.city}</td>
+                        <td className='table-body-cell'>{contact.emailOne}</td>
+                        <td className='table-body-cell'>{contact.emailTwo}</td>
+                        <td className='table-body-cell'>{contact.phoneOne}</td>
+                        <td className='table-body-cell'>{contact.phoneTwo}</td>
+                        <td className='table-body-cell'>
                             <button
                                 title="Details"
                                 className='redirect-button'

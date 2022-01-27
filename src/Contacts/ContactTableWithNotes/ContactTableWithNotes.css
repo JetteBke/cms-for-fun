@@ -1,0 +1,23 @@
+.contact-table-with-notes {
+    width: 100%;
+    padding-left: 1rem;
+    text-align: left;
+}
+
+.contact-table-header > th {
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+.new-table-header-cell, .new-table-body-cell {
+    max-width: fit-content;
+    padding-left: 0.5rem;
+}
+
+.table-body-row {
+    height: 3.0rem;
+}
+
+.button-cell {
+    display: flex;
+}

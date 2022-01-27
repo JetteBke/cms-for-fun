@@ -1,4 +1,4 @@
-import {deleteContact, getContacts} from "./Contacts/ContactService";
+import {deleteContact, getContacts} from "../../Contacts/ContactService";
 import {Overview} from "./Overview";
 import {render} from "@testing-library/react";
 import {mocked} from 'ts-jest/utils';

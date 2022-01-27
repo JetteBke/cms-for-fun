@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import {ContactTable} from "./Contacts/ContactTable/ContactTable";
-import {deleteContact, getContacts} from "./Contacts/ContactService";
-import {Contact} from "./Contacts/Contact";
-import {sortByLastName} from "./utils";
+import {deleteContact, getContacts} from "../../Contacts/ContactService";
+import {Contact} from "../../Contacts/Contact";
+import {sortByLastName} from "../../utils";
+import {ContactTableWithNotes} from "../../Contacts/ContactTableWithNotes/ContactTableWithNotes";
 
-export const Overview: React.FC = () => {
+export const OverviewWithNotes: React.FC = () => {
 
     const [contacts, setContacts] = useState<Array<Contact>>()
 
@@ -21,7 +21,7 @@ export const Overview: React.FC = () => {
     return (
         <div className='container'>
             <h1 className='title'>Alle Kontakte</h1>
-            {contacts && <ContactTable contacts={sortByLastName(contacts)} onDelete={removeContact}/>}
+            {contacts && <ContactTableWithNotes contacts={sortByLastName(contacts)} onDelete={removeContact}/>}
         </div>
     )
 }

@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import './FileDownload.css'
 import {exportToCsv} from "./CreateFile";
-import {Contact} from "../Contacts/Contact";
-import {getContacts} from "../Contacts/ContactService";
+import {Contact} from "../../Contacts/Contact";
+import {getContacts} from "../../Contacts/ContactService";
 
 const withoutIds = (contacts: Array<Contact>): Array<Contact> => {
     contacts.forEach((c) => delete c.id)

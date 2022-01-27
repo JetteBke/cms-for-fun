@@ -1,4 +1,4 @@
-import {Contact} from "../Contacts/Contact";
+import {Contact} from "../../Contacts/Contact";
 
 export const exportToCsv = (filename: string, rows: Array<Contact> | undefined): void => {
     if (!rows || !rows.length) {
