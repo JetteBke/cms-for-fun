@@ -5,7 +5,7 @@ import {mocked} from 'ts-jest/utils';
 import userEvent from "@testing-library/user-event";
 import {act} from "react-dom/test-utils";
 
-jest.mock('./Contacts/ContactService')
+jest.mock('../../Contacts/ContactService')
 
 describe('Contacts', () => {
     const contacts = [{
@@ -29,7 +29,7 @@ describe('Contacts', () => {
         const wrapper = render(<OverviewWithNotes/>)
         await act(() => Promise.resolve())
         //    then
-        expect(wrapper.getByText('some street 12')).toBeInTheDocument()
+        expect(wrapper.getByText('Doodle')).toBeInTheDocument()
     })
 
     it('should delete a contact and get full list of contacts again when user clicks delete button', async () => {

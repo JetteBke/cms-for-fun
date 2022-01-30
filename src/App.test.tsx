@@ -7,7 +7,7 @@ test('renders different routes of the app', () => {
 
   expect(wrapper.getAllByRole("link")).toHaveLength(5);
   expect(wrapper.getByText("Alle Kontakte")).toBeInTheDocument()
-  expect(wrapper.getByText("Alle Kontakte mit Bemerkung")).toBeInTheDocument()
+  expect(wrapper.getByText("Alle Kontakte mit Details")).toBeInTheDocument()
   expect(wrapper.getByText("Kontakt hinzufügen")).toBeInTheDocument()
   expect(wrapper.getByText("Datei hochladen")).toBeInTheDocument()
   expect(wrapper.getByText("Datei herunterladen")).toBeInTheDocument()

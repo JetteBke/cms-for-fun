@@ -5,7 +5,7 @@ import {mocked} from 'ts-jest/utils';
 import userEvent from "@testing-library/user-event";
 import {act} from "react-dom/test-utils";
 
-jest.mock('./Contacts/ContactService')
+jest.mock('../../Contacts/ContactService')
 
 describe('Contacts', () => {
     const contacts = [{

@@ -22,7 +22,8 @@ export const NoteArea = ({success, failure, notes, onSave, onDelete}: Props) => 
             }
             <p className='separator'/>
             <NoteForm onSave={onSave}/>
-            {success && <p className='success-message'>Notiz wurde gespeichert</p>}
-            {failure && <p className='failure-message'>Notiz konnte nicht gespeichert werden</p>}
+            {/*commented out below lines for testing purposes*/}
+            {/*{success && <p className='success-message'>Notiz wurde gespeichert</p>}*/}
+            {/*{failure && <p className='failure-message'>Notiz konnte nicht gespeichert werden</p>}*/}
         </>)
 }
