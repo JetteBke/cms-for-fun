@@ -155,6 +155,19 @@ export const ContactForm = ({contact, onSave}: Props) => {
                         />
                     </div>
                 </div>
+                <div className='form-row'>
+                    <div className='form-cell'>
+                        <p className='form-cell-title'>Bemerkung</p>
+                        <input
+                            name='oldNote'
+                            id='oldNote'
+                            type='oldNote'
+                            value={values?.oldNote}
+                            onChange={onChange}
+                            className='old-note-input'
+                        />
+                    </div>
+                </div>
                 {successMessage && <p className='success-message'>Kontakt wurde gespeichert</p>}
                 {failureMessage && <p className='failure-message'>Kontakt konnte nicht gespeichert werden</p>}
                 <button className='form-submit-button' type='submit'>Speichern</button>

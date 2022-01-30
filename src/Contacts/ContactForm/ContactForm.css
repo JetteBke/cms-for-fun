@@ -26,3 +26,7 @@
     border-radius: 3px;
     border: none;
 }
+
+.old-note-input {
+    width: 80rem;
+}
